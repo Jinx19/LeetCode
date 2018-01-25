@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SubarraySumEqualsK {
-	// TLE ( Time Limit Exceeded )
 	public static int subarraySum(int[] nums, int k) {
 		int count = 0;
 		Map<Integer, Integer> hash = new HashMap<Integer, Integer>();
