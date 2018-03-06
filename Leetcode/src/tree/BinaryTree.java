@@ -3,18 +3,9 @@ package tree;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class Node {
-	int data;
-	Node left, right;
-
-	public Node(int item) {
-		data = item;
-		left = right = null;
-	}
-}
 
 public class BinaryTree {
-	Node root;
+	TreeNode root;
 
 	public BinaryTree() {
 		root = null;
@@ -28,21 +19,21 @@ public class BinaryTree {
 		}
 	}
 
-	private void printGivenLevel(Node root, int level) {
+	private void printGivenLevel(TreeNode root, int level) {
 		// TODO Auto-generated method stub
 		if (root == null) {
 			return;
 		}
 
 		if (level == 1) {
-			System.out.println(root.data + " ");
+			System.out.println(root.val + " ");
 		} else if (level > 1) {
 			printGivenLevel(root.left, level - 1);
 			printGivenLevel(root.right, level - 1);
 		}
 	}
 
-	int height(Node root) {
+	int height(TreeNode root) {
 		if (root == null) {
 			return 0;
 		} else {
@@ -58,12 +49,12 @@ public class BinaryTree {
 	}
 
 	private void printLevelOrder2() {
-		Queue<Node> queue = new LinkedList<>();
+		Queue<TreeNode> queue = new LinkedList<>();
 		queue.add(root);
 
 		while (!queue.isEmpty()) {
-			Node tempNode = queue.poll();
-			System.out.println(tempNode.data + " ");
+			TreeNode tempNode = queue.poll();
+			System.out.println(tempNode.val + " ");
 
 			if (tempNode.left != null) {
 				queue.add(tempNode.left);
@@ -78,11 +69,11 @@ public class BinaryTree {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		BinaryTree tree = new BinaryTree();
-		tree.root = new Node(1);
-		tree.root.left = new Node(2);
-		tree.root.right = new Node(3);
-		tree.root.left.left = new Node(4);
-		tree.root.left.right = new Node(5);
+		tree.root = new TreeNode(1);
+		tree.root.left = new TreeNode(2);
+		tree.root.right = new TreeNode(3);
+		tree.root.left.left = new TreeNode(4);
+		tree.root.left.right = new TreeNode(5);
 
 		System.out.println("Level order traversal of binary tree is ");
 		tree.printLevelOrder2();
