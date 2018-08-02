@@ -4,6 +4,8 @@
 
 ## LeetCode
 
+* [001TwoSum](leetcode/001twosum.md)
+
 ## 编程之美
 
 ## 剑指Offer
