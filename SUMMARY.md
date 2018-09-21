@@ -8,11 +8,7 @@
 
 ## 剑指Offer
 
-* [不用加减乘除做加法](jian-zhi-offer/bu-yong-jia-jian-cheng-chu-zuo-jia-fa.md)
-* [Chapter1](jian-zhi-offer/ji-chu.md)
-  * [面试题1: 赋值运算符函数](jian-zhi-offer/mian-shi-ti-1-fu-zhi-yun-suan-fu-han-shu.md)
-  * [面试题2: 实现Singleton模式](jian-zhi-offer/mian-shi-ti-2-shi-xian-singleton-mo-shi.md)
-  * [面试题3: 二维数组中的查找](jian-zhi-offer/mian-shi-ti-3-er-wei-shu-zu-zhong-de-cha-zhao.md)
+    * [不用加减乘除做加法](jian-zhi-offer/bu-yong-jia-jian-cheng-chu-zuo-jia-fa.md)
 
 ## Crack coding interview
 
