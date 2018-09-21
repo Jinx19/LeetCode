@@ -39,22 +39,22 @@ Java不支持运算符重载,可以用clone来代替. 注意Java中的"=" 只是
 比如这段代码:
 
 ```java
-        String str1 = "word1";
-        String str2 = "word2";
-        if (str1 == str2){
-            System.out.println("str1 == str2 : true");
-        }else {
-            System.out.println("str1 == str2 : false");
-        }
-        System.out.println("str1 before = : " + str1 );
-        str1 = str2;
-        System.out.println("str1 after 'str1 = str2' ： " + str1);
+String str1 = "word1";
+String str2 = "word2";
+if (str1 == str2){
+    System.out.println("str1 == str2 : true");
+}else {
+    System.out.println("str1 == str2 : false");
+}
+System.out.println("str1 before = : " + str1 );
+str1 = str2;
+System.out.println("str1 after 'str1 = str2' ： " + str1);
 
-        if (str1 == str2){
-            System.out.println("str1 == str2 : true");
-        }else {
-            System.out.println("str1 == str2 : false");
-        }
+if (str1 == str2){
+    System.out.println("str1 == str2 : true");
+}else {
+    System.out.println("str1 == str2 : false");
+}
 ```
 
 输出为:
