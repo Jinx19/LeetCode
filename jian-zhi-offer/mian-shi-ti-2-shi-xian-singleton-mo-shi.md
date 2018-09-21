@@ -1,3 +1,5 @@
+# 实现Singleton模式
+
 单例模式详解:[https://design-patterns.readthedocs.io/zh\_CN/latest/creational\_patterns/singleton.html](https://design-patterns.readthedocs.io/zh_CN/latest/creational_patterns/singleton.html)
 
 对于系统中的某些类来说，只有一个实例很重要，例如，一个系统中可以存在多个打印任务，但是只能有一个正在工作的任务；一个系统只能有一个窗口管理器或文件系统；一个系统只能有一个计时工具或ID（序号）生成器。
