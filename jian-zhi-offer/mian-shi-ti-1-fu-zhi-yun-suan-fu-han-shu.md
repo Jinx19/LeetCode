@@ -28,9 +28,13 @@ private:
 
 * 是否判断传入的参数和当前实例是不是同一个实例.
 
+另外在c++ 中需要手动删除内存,在释放了类中原本字符串的内存空间后,重新申请空间可能会报错,而这时实例中的字符串则会报错.
+
+要想在赋值运算符函数中实现异常安全性，我们有两种方法。
+
+一个简单的办法是我们先用new分配新内容再用delete释放已有的内容。这样只在分配内容成功之后再释放原来的内容，也就是当分配内存失败时我们能确保CMyString的实例不会被修改。我们还有一个更好的办法是先创建一个临时实例，再交换临时实例和原来的实例。
+
 Java不支持运算符重载,可以用clone来代替. 注意Java中的"=" 只是赋予对象的引用,即地址.而不是copy了一份对象.
-
-
 
 比如这段代码:
 
@@ -74,7 +78,7 @@ str1 和 str2 的引用不同
 
 如果换成clone :
 
-新建一个类 : 
+新建一个类 :
 
 ```java
 class Echo {
@@ -125,5 +129,5 @@ e2.count : 10
 
 参考:
 
-https://stackoverflow.com/questions/12020417/what-happens-when-an-object-is-assigned-to-another-object
+[https://stackoverflow.com/questions/12020417/what-happens-when-an-object-is-assigned-to-another-object](https://stackoverflow.com/questions/12020417/what-happens-when-an-object-is-assigned-to-another-object)
 
