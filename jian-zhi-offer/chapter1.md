@@ -8,4 +8,37 @@
 
 ## 字符串
 
-字符串以'\0'作为结尾.
+c++中字符串以'\0'作为结尾.
+
+注意常量字符串在一个单独的内存空间.
+当引用相同的字符串时,即使是不同的引用,他们也相同.
+例如:
+```java
+String str1 = "hello world";
+String str2 = "hello world";
+if(str1 == str2){
+    System.out.println("true");
+}else{
+    System.out.println("false");
+}
+```
+这段代码将返回true
+而
+```java
+String str1 = "hello world";
+String str2 = new String(str1);
+
+if(str1 == str2){
+    System.out.println("true");
+}else{
+    System.out.println("false");
+}
+```
+返回false
+String是不变的,对它进行任何操作都会产生一个新的实例.
+```java
+String str1 = "hello world";
+str1.toUpperCase();
+System.out.println(str1);
+```
+返回的还是hello world,而不是HELLO WORLD
