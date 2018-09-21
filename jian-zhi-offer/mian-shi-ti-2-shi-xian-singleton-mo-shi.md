@@ -106,56 +106,57 @@ public class MyObject {
 
    ```java
    public static MyObject getInstance() {
-   	try {
-   		if (myObject != null) {
-   		} else {
-   			// 模拟在创建对象之前做一些准备性的工作
-   			Thread.sleep(3000);
-   			// 使用synchronized (MyObject.class)
-   			// 虽然部分代码被上锁
-   			// 但还是有非线程安全问题
-   			synchronized (MyObject.class) {
-   				myObject = new MyObject();
-   			}
-   		}
-   	} catch (InterruptedException e) {
-   		e.printStackTrace();
-   	}
-   	return myObject;
+       try {
+           if (myObject != null) {
+           } else {
+               // 模拟在创建对象之前做一些准备性的工作
+               Thread.sleep(3000);
+               // 使用synchronized (MyObject.class)
+               // 虽然部分代码被上锁
+               // 但还是有非线程安全问题
+               synchronized (MyObject.class) {
+                   myObject = new MyObject();
+               }
+           }
+       } catch (InterruptedException e) {
+           e.printStackTrace();
+       }
+       return myObject;
    }
    ```
 
 4. 使用DCL双检查锁机制
+
    ```java
    public class MyObject {
 
-   	private volatile static MyObject myObject;
+       private volatile static MyObject myObject;
 
-   	private MyObject() {
-   	}
+       private MyObject() {
+       }
 
-   	// 使用双检测机制来解决问题
-   	// 即保证了不需要同步代码的异步
-   	// 又保证了单例的效果
-   	public static MyObject getInstance() {
-   		try {
-   			if (myObject != null) {
-   			} else {
-   				// 模拟在创建对象之前做一些准备性的工作
-   				Thread.sleep(3000);
-   				synchronized (MyObject.class) {
-   					if (myObject == null) {
-   						myObject = new MyObject();
-   					}
-   				}
-   			}
-   		} catch (InterruptedException e) {
-   			e.printStackTrace();
-   		}
-   		return myObject;
-   	}
-   	// 此版本的代码称为：
-   	// 双重检查Double-Check Locking
+       // 使用双检测机制来解决问题
+       // 即保证了不需要同步代码的异步
+       // 又保证了单例的效果
+       public static MyObject getInstance() {
+           try {
+               if (myObject != null) {
+               } else {
+                   // 模拟在创建对象之前做一些准备性的工作
+                   Thread.sleep(3000);
+                   synchronized (MyObject.class) {
+                       if (myObject == null) {
+                           myObject = new MyObject();
+                       }
+                   }
+               }
+           } catch (InterruptedException e) {
+               e.printStackTrace();
+           }
+           return myObject;
+       }
+       // 此版本的代码称为：
+       // 双重检查Double-Check Locking
 
    }
    ```
@@ -165,22 +166,22 @@ public class MyObject {
 ```java
 public class MyObject {
 
-	// 内部类方式
-	private static class MyObjectHandler {
-		private static MyObject myObject = new MyObject();
-	}
+    // 内部类方式
+    private static class MyObjectHandler {
+        private static MyObject myObject = new MyObject();
+    }
 
-	private MyObject() {
-	}
+    private MyObject() {
+    }
 
-	public static MyObject getInstance() {
-		return MyObjectHandler.myObject;
-	}
+    public static MyObject getInstance() {
+        return MyObjectHandler.myObject;
+    }
 
 }
 ```
 
-## 序列化与反序列化的单例模式实现 
+## 序列化与反序列化的单例模式实现
 
 静态内置类可以达到线程安全,但如果遇到序列化对象时,使用默认的方法运行得到的结果还是多例.
 
@@ -189,64 +190,140 @@ public class MyObject {
 ```java
 public class MyObject implements Serializable {
 
-	private static final long serialVersionUID = 888L;
+    private static final long serialVersionUID = 888L;
 
-	// 内部类方式
-	private static class MyObjectHandler {
-		private static final MyObject myObject = new MyObject();
-	}
+    // 内部类方式
+    private static class MyObjectHandler {
+        private static final MyObject myObject = new MyObject();
+    }
 
-	private MyObject() {
-	}
+    private MyObject() {
+    }
 
-	public static MyObject getInstance() {
-		return MyObjectHandler.myObject;
-	}
+    public static MyObject getInstance() {
+        return MyObjectHandler.myObject;
+    }
 
-	protected Object readResolve() throws ObjectStreamException {
-		System.out.println("调用了readResolve方法！");
-		return MyObjectHandler.myObject;
-	}
+    protected Object readResolve() throws ObjectStreamException {
+        System.out.println("调用了readResolve方法！");
+        return MyObjectHandler.myObject;
+    }
 
 }
 
 public class SaveAndRead {
 
-	public static void main(String[] args) {
-		try {
-			MyObject myObject = MyObject.getInstance();
-			FileOutputStream fosRef = new FileOutputStream(new File(
-					"myObjectFile.txt"));
-			ObjectOutputStream oosRef = new ObjectOutputStream(fosRef);
-			oosRef.writeObject(myObject);
-			oosRef.close();
-			fosRef.close();
-			System.out.println(myObject.hashCode());
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    public static void main(String[] args) {
+        try {
+            MyObject myObject = MyObject.getInstance();
+            FileOutputStream fosRef = new FileOutputStream(new File(
+                    "myObjectFile.txt"));
+            ObjectOutputStream oosRef = new ObjectOutputStream(fosRef);
+            oosRef.writeObject(myObject);
+            oosRef.close();
+            fosRef.close();
+            System.out.println(myObject.hashCode());
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
-		try {
-			FileInputStream fisRef = new FileInputStream(new File(
-					"myObjectFile.txt"));
-			ObjectInputStream iosRef = new ObjectInputStream(fisRef);
-			MyObject myObject = (MyObject) iosRef.readObject();
-			iosRef.close();
-			fisRef.close();
-			System.out.println(myObject.hashCode());
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
+        try {
+            FileInputStream fisRef = new FileInputStream(new File(
+                    "myObjectFile.txt"));
+            ObjectInputStream iosRef = new ObjectInputStream(fisRef);
+            MyObject myObject = (MyObject) iosRef.readObject();
+            iosRef.close();
+            fisRef.close();
+            System.out.println(myObject.hashCode());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
+    }
+```
+
+## 用static代码块实现单例模式
+
+```java
+public class MyObject {
+
+	private static MyObject instance = null;
+
+	private MyObject() {
 	}
+
+	static {
+		instance = new MyObject();
+	}
+
+	public static MyObject getInstance() {
+		return instance;
+	}
+
+}
+```
+
+## 使用枚举enum数据类型实现单例模式
+
+在使用枚举类时,构造方法会被自动调用.
+
+```java
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class MyObject {
+
+	public enum MyEnumSingleton {
+		connectionFactory;
+
+		private Connection connection;
+
+		private MyEnumSingleton() {
+			try {
+				System.out.println("创建MyObject对象");
+				String url = "jdbc:sqlserver://localhost:1079;databaseName=y2";
+				String username = "sa";
+				String password = "";
+				String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+				Class.forName(driverName);
+				connection = DriverManager.getConnection(url, username,
+						password);
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		public Connection getConnection() {
+			return connection;
+		}
+	}
+
+	public static Connection getConnection() {
+		return MyEnumSingleton.connectionFactory.getConnection();
+	}
+
+}
+public class MyThread extends Thread {
+
+	@Override
+	public void run() {
+		for (int i = 0; i < 5; i++) {
+			System.out.println(MyObject.getConnection().hashCode());
+		}
+	}
+}
+注意"指责单一原则"
 ```
 
 
