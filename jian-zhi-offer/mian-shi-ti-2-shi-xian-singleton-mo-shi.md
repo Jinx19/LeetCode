@@ -6,7 +6,7 @@
 
 一个更好的解决办法是让类自身负责保存它的唯一实例。这个类可以保证没有其他实例被创建，并且它可以提供一个访问该实例的方法。这就是单例模式的模式动机。
 
-# 在《Java多线程编程核心技术》书中提到如何实现单例模式
+在《Java多线程编程核心技术》书中提到如何实现单例模式
 
 ## 立即加载/"饿汉模式"
 
@@ -255,18 +255,18 @@ public class SaveAndRead {
 ```java
 public class MyObject {
 
-	private static MyObject instance = null;
+    private static MyObject instance = null;
 
-	private MyObject() {
-	}
+    private MyObject() {
+    }
 
-	static {
-		instance = new MyObject();
-	}
+    static {
+        instance = new MyObject();
+    }
 
-	public static MyObject getInstance() {
-		return instance;
-	}
+    public static MyObject getInstance() {
+        return instance;
+    }
 
 }
 ```
@@ -282,46 +282,46 @@ import java.sql.SQLException;
 
 public class MyObject {
 
-	public enum MyEnumSingleton {
-		connectionFactory;
+    public enum MyEnumSingleton {
+        connectionFactory;
 
-		private Connection connection;
+        private Connection connection;
 
-		private MyEnumSingleton() {
-			try {
-				System.out.println("创建MyObject对象");
-				String url = "jdbc:sqlserver://localhost:1079;databaseName=y2";
-				String username = "sa";
-				String password = "";
-				String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-				Class.forName(driverName);
-				connection = DriverManager.getConnection(url, username,
-						password);
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
+        private MyEnumSingleton() {
+            try {
+                System.out.println("创建MyObject对象");
+                String url = "jdbc:sqlserver://localhost:1079;databaseName=y2";
+                String username = "sa";
+                String password = "";
+                String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+                Class.forName(driverName);
+                connection = DriverManager.getConnection(url, username,
+                        password);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
 
-		public Connection getConnection() {
-			return connection;
-		}
-	}
+        public Connection getConnection() {
+            return connection;
+        }
+    }
 
-	public static Connection getConnection() {
-		return MyEnumSingleton.connectionFactory.getConnection();
-	}
+    public static Connection getConnection() {
+        return MyEnumSingleton.connectionFactory.getConnection();
+    }
 
 }
 public class MyThread extends Thread {
 
-	@Override
-	public void run() {
-		for (int i = 0; i < 5; i++) {
-			System.out.println(MyObject.getConnection().hashCode());
-		}
-	}
+    @Override
+    public void run() {
+        for (int i = 0; i < 5; i++) {
+            System.out.println(MyObject.getConnection().hashCode());
+        }
+    }
 }
 注意"指责单一原则"
 ```
