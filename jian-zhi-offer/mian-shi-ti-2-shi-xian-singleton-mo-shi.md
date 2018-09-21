@@ -13,41 +13,39 @@
 ```java
 public class MyObject {
 
-	// 立即加载方式==饿汉模式
-	private static MyObject myObject = new MyObject();
+    // 立即加载方式==饿汉模式
+    private static MyObject myObject = new MyObject();
 
-	private MyObject() {
-	}
+    private MyObject() {
+    }
 
-	public static MyObject getInstance() {
-		// 此代码版本为立即加载
-		// 此版本代码的缺点是不能有其它实例变量
-		// 因为getInstance()方法没有同步
-		// 所以有可能出现非线程安全问题
-		return myObject;
-	}
-
+    public static MyObject getInstance() {
+        // 此代码版本为立即加载
+        // 此版本代码的缺点是不能有其它实例变量
+        // 因为getInstance()方法没有同步
+        // 所以有可能出现非线程安全问题
+        return myObject;
+    }
 ```
 
 ## 延迟加载/"懒汉模式" : 调用方法时实例才被创建.
 
 ```java
+    private static MyObject myObject;
 
-	private static MyObject myObject;
+    private MyObject() {
+    }
 
-	private MyObject() {
-	}
-
-	public static MyObject getInstance() {
-		// 延迟加载
-		if (myObject != null) {
-		} else {
-		// 模拟在创建对象之前做一些准备性的工作
-			Thread.sleep(3000);
-			myObject = new MyObject();
-		}
-		return myObject;
-	}
+    public static MyObject getInstance() {
+        // 延迟加载
+        if (myObject != null) {
+        } else {
+        // 模拟在创建对象之前做一些准备性的工作
+            Thread.sleep(3000);
+            myObject = new MyObject();
+        }
+        return myObject;
+    }
 
 }
 ```
@@ -57,10 +55,47 @@ public class MyObject {
 解决方案
 
 1. 声明synchronized关键字
+
+   ```java
+   // 设置同步方法效率太低了
+   // 整个方法被上锁
+   synchronized public static MyObject getInstance() {
+   	try {
+   		if (myObject != null) {
+   		} else {
+   		// 模拟在创建对象之前做一些准备性的工作
+   			Thread.sleep(3000);
+   			myObject = new MyObject();
+   		}
+   	} catch (InterruptedException e) {
+   		e.printStackTrace();
+   	}
+   	return myObject;
+   }
    ```
 
-   ```
 2. 尝试同步代码块
+   ```java
+   public static MyObject getInstance() {
+   	try {
+   		// 此种写法等同于：
+   		// synchronized public static MyObject getInstance()
+   		// 的写法，效率一样很低，全部代码被上锁
+   		synchronized (MyObject.class) {
+   			if (myObject != null) {
+   			} else {
+   				// 模拟在创建对象之前做一些准备性的工作
+   				Thread.sleep(3000);
+
+   				myObject = new MyObject();
+   			}
+   		}
+   	} catch (InterruptedException e) {
+   		e.printStackTrace();
+   	}
+   	return myObject;
+   }
+   ```
 3. 针对某些重要代码进行单独的同步
 4. 使用DCL双检查锁机制
 
