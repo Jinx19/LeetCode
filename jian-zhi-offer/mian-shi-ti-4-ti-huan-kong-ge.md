@@ -13,27 +13,26 @@
 ![](/assets/Screen Shot 2018-09-21 at 下午10.55.23.png)
 
 ```java
-public char[] replaceBlank(char[] string, int length) {
+public int replaceBlank(char[] string, int length) {
         int spaceCount = 0;
         for(char c : string){
             if(c == ' '){
                 spaceCount++;
             }
         }
-        char[] temp = new char[length + spaceCount * 2];
+        int newlength = length + spaceCount * 2
         int last = temp.length - 1,before = length - 1;
         while (before >= 0){
             if(string[before] == ' '){
-                temp[last--] = '0';
-                temp[last--] = '2';
-                temp[last--] = '%';
+                string[last--] = '0';
+                string[last--] = '2';
+                string[last--] = '%';
             }else{
-                temp[last--] = string[before];
+                string[last--] = string[before];
             }
             before--;
         }
-        string = temp;
-        return string;
+        return newlength;
     }
 ```
 
