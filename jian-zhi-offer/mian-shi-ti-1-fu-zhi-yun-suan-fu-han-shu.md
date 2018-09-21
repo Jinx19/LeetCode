@@ -28,11 +28,102 @@ private:
 
 * 是否判断传入的参数和当前实例是不是同一个实例.
 
-Java不支持运算符重载,可以用clone来代替.Java中的"=" 只是赋予对象的引用,即地址.而不是copy了一份对象.
-
-比如   
+Java不支持运算符重载,可以用clone来代替. 注意Java中的"=" 只是赋予对象的引用,即地址.而不是copy了一份对象.
 
 
 
+比如这段代码:
 
+```java
+        String str1 = "word1";
+        String str2 = "word2";
+        if (str1 == str2){
+            System.out.println("str1 == str2 : true");
+        }else {
+            System.out.println("str1 == str2 : false");
+        }
+        System.out.println("str1 before = : " + str1 );
+        str1 = str2;
+        System.out.println("str1 after 'str1 = str2' ： " + str1);
+
+        if (str1 == str2){
+            System.out.println("str1 == str2 : true");
+        }else {
+            System.out.println("str1 == str2 : false");
+        }
+```
+
+输出为:
+
+```java
+str1 == str2 : false
+str1 before = : word1
+str1 after 'str1 = str2' ： word2
+str1 == str2 : true
+```
+
+注意String类没有实现clone方法,但是其构造函数类似于复制内容但不是同一个引用,比如
+
+```
+String str1 = "word";
+String str2 = new String(str1);
+str1 和 str2 的引用不同
+```
+
+![](/assets/Screen Shot 2018-09-21 at 下午3.23.06.png)
+
+如果换成clone :
+
+新建一个类 : 
+
+```java
+class Echo {
+    int count = 0;
+
+    void hello() {
+        System.out.println("Hellooooo....");
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Echo echo = new Echo();
+        echo.count = this.count;
+        return echo;
+    }
+}
+```
+
+```java
+ Echo e1 = new Echo();
+ Echo e2 = new Echo();
+ e1 = (Echo)e2.clone();
+ //e2 = e1;
+ int x = 0;
+ while (x < 4) {
+    e1.hello();
+    e1.count = e1.count + 1;
+    if (x == 3) {
+       e2.count = e2.count + 1;
+    }
+    if (x > 0) {
+       e2.count = e2.count + e1.count;
+    }
+    x = x + 1;
+ }
+    System.out.println("e1.count : " + e1.count);
+    System.out.print("e2.count : " + e2.count);
+```
+
+```
+如果是e2 = e1 时,结果为
+e1.count : 24
+e2.count : 24
+如果是e2 = (Echo)e1.clone()时,结果为
+e1.count : 4
+e2.count : 10
+```
+
+参考:
+
+https://stackoverflow.com/questions/12020417/what-happens-when-an-object-is-assigned-to-another-object
 
