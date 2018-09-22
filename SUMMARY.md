@@ -14,6 +14,7 @@
   * [面试题2 : 实现Singleton模式](jian-zhi-offer/mian-shi-ti-2-shi-xian-singleton-mo-shi.md)
   * [面试题3 : 二维数组中的查找](jian-zhi-offer/mian-shi-ti-3-er-wei-shu-zu-zhong-de-cha-zhao.md)
   * [面试题4 : 替换空格](jian-zhi-offer/mian-shi-ti-4-ti-huan-kong-ge.md)
+  * [面试题5 : 从尾到头打印链表](jian-zhi-offer/mian-shi-ti-5-cong-wei-dao-tou-da-yin-lian-biao.md)
 
 ## 九章算法
 
