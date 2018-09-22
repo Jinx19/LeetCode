@@ -35,6 +35,40 @@ public int replaceBlank(char[] string, int length) {
         return newlength;
     }
 ```
+## 相关题目
+有两个排序的数组A1和A2，内存在A1的末尾有足够多的空余空间容纳A2。请实现一个函数，把A2中的所有数字插入到A1中并且所有的数字是排序的。
+
+和前面的例题一样，很多人首先想到的办法是在A1中从头到尾复制数字，但这样就会出现多次复制一个数字的情况。更好的办法是从尾到头比较A1和A2中的数字，并把较大的数字复制到A1的合适位置。
 
 
+[88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/description/)
 
+>Example:
+
+```
+Input:
+nums1 = [1,2,3,0,0,0], m = 3
+nums2 = [2,5,6],       n = 3
+
+Output: [1,2,2,3,5,6]
+```
+
+```java
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        while(m > 0 && n > 0){
+            if(nums1[m-1]>nums2[n-1]){
+                nums1[m+n-1] = nums1[m-1];
+                m--;
+            }else{
+                nums1[m+n-1] = nums2[n-1];
+                n--;
+            }
+        }
+        while(n > 0){
+            nums1[m+n-1] = nums2[n-1];
+            n--;
+        }
+    }
+}
+```
