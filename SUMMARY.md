@@ -21,4 +21,5 @@
 * [二叉树与分治法](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa.md)
   * [遍历](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/bian-li.md)
   * [Maximum Depth of Binary Tree](jiu-zhang-suan-fa/maxdepth.md)
+  * [BinaryTreePaths](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/binarytreepaths.md)
 
