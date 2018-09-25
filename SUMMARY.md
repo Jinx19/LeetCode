@@ -23,4 +23,5 @@
   * [MaximumDepthofBinaryTree](jiu-zhang-suan-fa/maxdepth.md)
   * [BinaryTreePaths](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/binarytreepaths.md)
   * [Minimum Subtree](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/minimum-subtree.md)
+  * [Balanced Binary Tree](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/balanced-binary-tree.md)
 
