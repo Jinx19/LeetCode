@@ -8,10 +8,10 @@ public class Solution {
         if(root == null){
             return 0;
         }
-        
+
         int left = maxDepth(root.left);
         int right = maxDepth(root.right);
-        
+
         if(Math.abs(right - left) > 1 || left == -1 || right == -1){
             return -1;
         }
@@ -28,5 +28,7 @@ public class Solution {
 }
 ```
 
-https://leetcode.com/problems/balanced-binary-tree/description/
+[https://leetcode.com/problems/balanced-binary-tree/description/](https://leetcode.com/problems/balanced-binary-tree/description/)
+
+https://www.jiuzhang.com/solutions/balanced-binary-tree/
 
