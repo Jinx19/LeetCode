@@ -13,14 +13,14 @@ public class Solution {
         if(root == null || root == A || root == B){
             return root;
         }
-        
+
         TreeNode left = lowestCommonAncestor(root.left,A,B);
         TreeNode right = lowestCommonAncestor(root.right,A,B);
-        
+
         if(left != null && right != null){
             return root;
         }
-        
+
         return left != null ? left : right;
     }
 }
@@ -53,7 +53,7 @@ public class Solution {
             parents.add(A);
             A = A.parent;
         }
-        
+
         while(B != null){
             if(parents.contains(B)){
                 lca = B;
@@ -61,9 +61,9 @@ public class Solution {
             }
             B = B.parent;
         }
-        
+
         return lca;
-       
+
     }
 }
 ```
@@ -72,7 +72,7 @@ public class Solution {
 
 ```java
 class Solution {
-    
+
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         Map<TreeNode, TreeNode> parent = new HashMap<>();
         Deque<TreeNode> stack = new ArrayDeque<>();
@@ -101,6 +101,10 @@ class Solution {
     }
 }
 ```
+
+## ResultType
+
+
 
 
 
