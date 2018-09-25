@@ -24,4 +24,6 @@
   * [BinaryTreePaths](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/binarytreepaths.md)
   * [Minimum Subtree](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/minimum-subtree.md)
   * [Balanced Binary Tree](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/balanced-binary-tree.md)
+  * [Subtree with Maximum Average](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/subtree-with-maximum-average.md)
+  * [Lowest Common Anestor](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/lowest-common-anestor.md)
 
