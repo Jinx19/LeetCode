@@ -1,4 +1,4 @@
-# 二叉树最大深度
+# Maximum Depth of Binary Tree
 
 ## 分治
 
@@ -14,10 +14,10 @@ public class Solution {
             return 0;
         }
         int maxdepth = 0;
-        
+
         int left = maxDepth(root.left);
         int right = maxDepth(root.right);
-        
+
         return Math.max(left,right) + 1;
     }
 }
@@ -39,10 +39,10 @@ public class Solution {
          if(curDepth > depth){
              depth = curDepth;
          }
-         
+
          helper(root.left,curDepth + 1);
          helper(root.right,curDepth + 1);
-         
+
      }
     public int maxDepth(TreeNode root) {
         // write your code here
@@ -80,7 +80,7 @@ public class Solution {
                 if(node.left != null){
                     q.offer(node.left);
                 }
-                
+
                 if(node.right != null){
                     q.offer(node.right);
                 }
