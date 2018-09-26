@@ -104,7 +104,69 @@ class Solution {
 
 ## ResultType
 
+```java
+ class ResultType{
+     TreeNode lca;
+     boolean a_exist,b_exist;
+     public ResultType(TreeNode lca,boolean a_exist,boolean b_exist){
+         this.lca = lca;
+         this.a_exist = a_exist;
+         this.b_exist = b_exist;
+     }
+ }
 
+
+public class Solution {
+    /*
+     * @param root: The root of the binary tree.
+     * @param A: A TreeNode
+     * @param B: A TreeNode
+     * @return: Return the LCA of the two nodes.
+     */
+     
+    public ResultType helper(TreeNode root,TreeNode A,TreeNode B){
+        if(root == null){
+            return new ResultType(null,false,false);
+        }
+        
+        ResultType resultleft  = helper(root.left,A,B);
+        ResultType resultright  = helper(root.right,A,B);
+        
+        boolean a_exist = resultright.a_exist || resultleft.a_exist || root == A;
+        boolean b_exist = resultleft.b_exist || resultright.b_exist || root == B;
+        
+        if(root == A || root == B){
+            return new ResultType(root,a_exist,b_exist);
+        }
+        
+        if(resultleft.lca != null && resultright.lca != null){
+            return new ResultType(root,a_exist,b_exist);
+        }
+        
+        if(resultleft.lca != null){
+            return new ResultType(resultleft.lca,a_exist,b_exist);
+        }
+        
+        if(resultright.lca != null){
+            return new ResultType(resultright.lca,a_exist,b_exist);
+        }
+        
+        return new ResultType(null,a_exist,b_exist);
+        
+    }
+    public TreeNode lowestCommonAncestor3(TreeNode root, TreeNode A, TreeNode B) {
+        // write your code here
+        ResultType resulttype = helper(root,A,B);
+        if(resulttype.a_exist && resulttype.b_exist){
+            return resulttype.lca;
+        }else{
+            return null;
+        }
+        
+        
+    }
+}
+```
 
 
 

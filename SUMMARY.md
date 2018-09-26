@@ -15,6 +15,7 @@
   * [面试题3 : 二维数组中的查找](jian-zhi-offer/mian-shi-ti-3-er-wei-shu-zu-zhong-de-cha-zhao.md)
   * [面试题4 : 替换空格](jian-zhi-offer/mian-shi-ti-4-ti-huan-kong-ge.md)
   * [面试题5 : 从尾到头打印链表](jian-zhi-offer/mian-shi-ti-5-cong-wei-dao-tou-da-yin-lian-biao.md)
+  * [面试题6 : 重建二叉树](jian-zhi-offer/mian-shi-ti-6-zhong-jian-er-cha-shu.md)
 
 ## 九章算法
 
