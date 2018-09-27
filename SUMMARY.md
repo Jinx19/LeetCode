@@ -30,4 +30,6 @@
   * [Validate Binary Search Tree](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/validate-binary-search-tree.md)
   * [Convert Binary Search Tree to Doubly Linked List](/jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/flattern-binary-tree-to-linked-list.md)
   * [Flattern Binary Tree to Linked List](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/jiang-er-cha-shu-chai-cheng-lian-biao.md)
+* [宽度优先搜索](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo.md)
+  * [Binary Tree Level Order Traversal](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/binary-tree-level-order-traversal.md)
 
