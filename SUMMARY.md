@@ -29,6 +29,5 @@
   * [Lowest Common Anestor](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/lowest-common-anestor.md)
   * [Validate Binary Search Tree](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/validate-binary-search-tree.md)
   * [将二叉查找树转换成双链表](/jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/flattern-binary-tree-to-linked-list.md)
-
-
+  * [将二叉树拆成链表](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/jiang-er-cha-shu-chai-cheng-lian-biao.md)
 
