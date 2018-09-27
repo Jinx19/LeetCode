@@ -28,4 +28,5 @@
   * [Subtree with Maximum Average](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/subtree-with-maximum-average.md)
   * [Lowest Common Anestor](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/lowest-common-anestor.md)
   * [Validate Binary Search Tree](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/validate-binary-search-tree.md)
+  * [Flattern Binary Tree to Linked List](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/flattern-binary-tree-to-linked-list.md)
 

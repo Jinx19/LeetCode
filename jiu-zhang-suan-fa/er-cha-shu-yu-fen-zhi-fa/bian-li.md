@@ -33,7 +33,7 @@ public class Solution {
      * @param root: A Tree
      * @return: Preorder in ArrayList which contains node values.
      */
-   
+
     public List<Integer> preorderTraversal(TreeNode root) {
         // write your code here
         List<Integer> list = new ArrayList<>();
@@ -48,7 +48,7 @@ public class Solution {
             if(node.right != null){
                 s.push(node.right);
             }
-            
+
             if(node.left != null){
                 s.push(node.left);
             }
@@ -72,7 +72,7 @@ public class Solution {
         if(root == null){
             return;
         }
-        
+
         helper(root.left,list);
         list.add(root.val);
         helper(root.right,list);
