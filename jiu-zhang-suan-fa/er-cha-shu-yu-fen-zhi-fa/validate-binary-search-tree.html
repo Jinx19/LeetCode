@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>BinaryTreePaths · GitBook</title>
+        <title>Validate Binary Search Tree · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="minimum-subtree.html" />
+    <link rel="next" href="flattern-binary-tree-to-linked-list.html" />
     
     
-    <link rel="prev" href="../maxdepth.html" />
+    <link rel="prev" href="lowest-common-anestor.html" />
     
 
     </head>
@@ -293,7 +293,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="5.1.3" data-path="binarytreepaths.html">
+        <li class="chapter " data-level="5.1.3" data-path="binarytreepaths.html">
             
                 <a href="binarytreepaths.html">
             
@@ -358,7 +358,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.8" data-path="validate-binary-search-tree.html">
+        <li class="chapter active" data-level="5.1.8" data-path="validate-binary-search-tree.html">
             
                 <a href="validate-binary-search-tree.html">
             
@@ -432,7 +432,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >BinaryTreePaths</a>
+        <a href="../.." >Validate Binary Search Tree</a>
     </h1>
 </div>
 
@@ -447,70 +447,105 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="binary-tree-paths">Binary Tree Paths</h1>
-<h2 id="&#x5206;&#x6CBB;">&#x5206;&#x6CBB;</h2>
+                                <h3 id="&#x9A8C;&#x8BC1;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;">&#x9A8C;&#x8BC1;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;</h3>
+<p>&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x5224;&#x65AD;&#x5B83;&#x662F;&#x5426;&#x662F;&#x5408;&#x6CD5;&#x7684;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;(BST)</p>
+<p>&#x4E00;&#x68F5;BST&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;</p>
+<ul>
+<li>&#x8282;&#x70B9;&#x7684;&#x5DE6;&#x5B50;&#x6811;&#x4E2D;&#x7684;&#x503C;&#x8981;<strong>&#x4E25;&#x683C;</strong>&#x5C0F;&#x4E8E;&#x8BE5;&#x8282;&#x70B9;&#x7684;&#x503C;&#x3002;</li>
+<li>&#x8282;&#x70B9;&#x7684;&#x53F3;&#x5B50;&#x6811;&#x4E2D;&#x7684;&#x503C;&#x8981;<strong>&#x4E25;&#x683C;</strong>&#x5927;&#x4E8E;&#x8BE5;&#x8282;&#x70B9;&#x7684;&#x503C;&#x3002;</li>
+<li>&#x5DE6;&#x53F3;&#x5B50;&#x6811;&#x4E5F;&#x5FC5;&#x987B;&#x662F;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x3002;</li>
+<li>&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x6811;&#x4E5F;&#x662F;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x3002;</li>
+</ul>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-comment">/**
-     * <span class="hljs-doctag">@param</span> root: the root of the binary tree
-     * <span class="hljs-doctag">@return</span>: all root-to-leaf paths
+     * <span class="hljs-doctag">@param</span> root: The root of binary tree.
+     * <span class="hljs-doctag">@return</span>: True if the binary tree is BST, or false
      */</span>
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;String&gt; <span class="hljs-title">binaryTreePaths</span><span class="hljs-params">(TreeNode root)</span> </span>{
-        <span class="hljs-comment">// write your code here</span>
-        List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">long</span> max = Long.MAX_VALUE;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">long</span> min = Long.MIN_VALUE;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> isValidBST = <span class="hljs-keyword">true</span>;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">helper</span><span class="hljs-params">(TreeNode root, <span class="hljs-keyword">long</span> max,<span class="hljs-keyword">long</span> min)</span></span>{
         <span class="hljs-keyword">if</span>(root == <span class="hljs-keyword">null</span>){
-            <span class="hljs-keyword">return</span> list;
+            <span class="hljs-keyword">return</span>;
         }
-        <span class="hljs-comment">//&#x6CE8;&#x610F;&#x5BF9;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x7684;&#x5904;&#x7406;</span>
-        <span class="hljs-keyword">if</span>(root.left == <span class="hljs-keyword">null</span> &amp;&amp; root.right == <span class="hljs-keyword">null</span>){
-            list.add(<span class="hljs-string">&quot;&quot;</span> + root.val);
-            <span class="hljs-keyword">return</span> list;
+        <span class="hljs-keyword">if</span>(root.val &gt;= max || root.val &lt;= min){
+            isValidBST = <span class="hljs-keyword">false</span>;
+            <span class="hljs-keyword">return</span>;
         }
-        List&lt;String&gt; leftPath = binaryTreePaths(root.left);
-        List&lt;String&gt; rightPath = binaryTreePaths(root.right);
-
-        <span class="hljs-keyword">for</span>(String path : leftPath){
-            list.add(root.val + <span class="hljs-string">&quot;-&gt;&quot;</span> + path);
-        }
-
-        <span class="hljs-keyword">for</span>(String path : rightPath){
-            list.add(root.val + <span class="hljs-string">&quot;-&gt;&quot;</span> + path);
-        }
-
-        <span class="hljs-keyword">return</span> list;
-
+        helper(root.left,root.val,min);
+        helper(root.right,max,root.val);
+        <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isValidBST</span><span class="hljs-params">(TreeNode root)</span> </span>{
+        <span class="hljs-comment">// write your code here</span>
+        helper(root,max,min);
+        <span class="hljs-keyword">return</span> isValidBST;
     }
 }
 </code></pre>
-<h2 id="&#x9012;&#x5F52;">&#x9012;&#x5F52;</h2>
+<p>&#x66F4;&#x89C4;&#x8303;&#x7684;&#x5199;&#x6CD5;:</p>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-comment">/**
-     * <span class="hljs-doctag">@param</span> root: the root of the binary tree
-     * <span class="hljs-doctag">@return</span>: all root-to-leaf paths
+     * <span class="hljs-doctag">@param</span> root: The root of binary tree.
+     * <span class="hljs-doctag">@return</span>: True if the binary tree is BST, or false
      */</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">helper</span><span class="hljs-params">(TreeNode root,String path,List&lt;String&gt; result)</span></span>{
-        <span class="hljs-keyword">if</span>(root.left == <span class="hljs-keyword">null</span> &amp;&amp; root.right == <span class="hljs-keyword">null</span>){
-            result.add(path);
-            <span class="hljs-keyword">return</span>;
-        }
-
-        <span class="hljs-keyword">if</span>(root.left != <span class="hljs-keyword">null</span>){
-            helper(root.left,path + <span class="hljs-string">&quot;-&gt;&quot;</span> + (root.left).val,result);
-        }
-
-        <span class="hljs-keyword">if</span>(root.right != <span class="hljs-keyword">null</span>){
-            helper(root.right,path + <span class="hljs-string">&quot;-&gt;&quot;</span> + (root.right).val,result);
-        }
-
-    }
-    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;String&gt; <span class="hljs-title">binaryTreePaths</span><span class="hljs-params">(TreeNode root)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isValidBST</span><span class="hljs-params">(TreeNode root)</span> </span>{
         <span class="hljs-comment">// write your code here</span>
-        List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
-        <span class="hljs-keyword">if</span>(root == <span class="hljs-keyword">null</span>){
-            <span class="hljs-keyword">return</span> list;
+        <span class="hljs-keyword">return</span> divConq(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">divConq</span><span class="hljs-params">(TreeNode root, <span class="hljs-keyword">long</span> min, <span class="hljs-keyword">long</span> max)</span></span>{
+        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>){
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
         }
-        helper(root,<span class="hljs-string">&quot;&quot;</span> + root.val,list);
-        <span class="hljs-keyword">return</span> list;
+        <span class="hljs-keyword">if</span> (root.val &lt;= min || root.val &gt;= max){
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+        }
+        <span class="hljs-keyword">return</span> divConq(root.left, min, Math.min(max, root.val)) &amp;&amp; 
+                divConq(root.right, Math.max(min, root.val), max);
+    }
+}
+</code></pre>
+<p>&#x975E;&#x9012;&#x5F52;, &#x5229;&#x7528;&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#x975E;&#x964D;&#x7684;&#x7279;&#x6027;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@param</span> root: The root of binary tree.
+     * <span class="hljs-doctag">@return</span>: True if the binary tree is BST, or false
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isValidBST</span><span class="hljs-params">(TreeNode root)</span> </span>{
+        <span class="hljs-comment">// write your code here</span>
+        <span class="hljs-keyword">boolean</span> isValidBST = <span class="hljs-keyword">true</span>;
+        List&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+        <span class="hljs-keyword">if</span>(root == <span class="hljs-keyword">null</span> || (root.left == <span class="hljs-keyword">null</span> &amp;&amp; root.right == <span class="hljs-keyword">null</span>)){
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+        }
+        TreeNode p = root;
+        Stack&lt;TreeNode&gt; stack = <span class="hljs-keyword">new</span> Stack&lt;&gt;();
+        <span class="hljs-keyword">while</span>(p != <span class="hljs-keyword">null</span>){
+            stack.push(p);
+            p = p.left;
+        }
+        <span class="hljs-keyword">while</span>(!stack.isEmpty()){
+            p = stack.pop();
+            list.add(p.val);
+            <span class="hljs-keyword">if</span>(p.right != <span class="hljs-keyword">null</span>){
+                p = p.right;
+                <span class="hljs-keyword">while</span>(p != <span class="hljs-keyword">null</span>){
+                    stack.push(p);
+                    p = p.left;
+                }
+            }
+        }
+        <span class="hljs-keyword">int</span> pre = list.get(<span class="hljs-number">0</span>);
+
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span> ; i &lt; list.size(); i++){
+            <span class="hljs-keyword">if</span>(pre &gt;= list.get(i)){
+                isValidBST = <span class="hljs-keyword">false</span>;
+                <span class="hljs-keyword">break</span>;
+            }
+            pre = list.get(i);
+        }
+        <span class="hljs-keyword">return</span> isValidBST;
     }
 }
 </code></pre>
@@ -541,12 +576,12 @@
 
             
                 
-                <a href="../maxdepth.html" class="navigation navigation-prev " aria-label="Previous page: MaximumDepthofBinaryTree">
+                <a href="lowest-common-anestor.html" class="navigation navigation-prev " aria-label="Previous page: Lowest Common Anestor">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="minimum-subtree.html" class="navigation navigation-next " aria-label="Next page: Minimum Subtree">
+                <a href="flattern-binary-tree-to-linked-list.html" class="navigation navigation-next " aria-label="Next page: 将二叉查找树转换成双链表">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -557,7 +592,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"BinaryTreePaths","level":"5.1.3","depth":2,"next":{"title":"Minimum Subtree","level":"5.1.4","depth":2,"path":"jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/minimum-subtree.md","ref":"jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/minimum-subtree.md","articles":[]},"previous":{"title":"MaximumDepthofBinaryTree","level":"5.1.2","depth":2,"path":"jiu-zhang-suan-fa/maxdepth.md","ref":"jiu-zhang-suan-fa/maxdepth.md","articles":[]},"dir":"ltr"},"config":{"plugins":["toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"Jinx19's Blog":"http://Jinx19.github.io"}},"gitbook":"*"},"file":{"path":"jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/binarytreepaths.md","mtime":"2018-09-25T13:03:22.422Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-27T05:45:34.503Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Validate Binary Search Tree","level":"5.1.8","depth":2,"next":{"title":"将二叉查找树转换成双链表","level":"5.1.9","depth":2,"path":"jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/flattern-binary-tree-to-linked-list.md","ref":"jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/flattern-binary-tree-to-linked-list.md","articles":[]},"previous":{"title":"Lowest Common Anestor","level":"5.1.7","depth":2,"path":"jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/lowest-common-anestor.md","ref":"jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/lowest-common-anestor.md","articles":[]},"dir":"ltr"},"config":{"plugins":["toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"Jinx19's Blog":"http://Jinx19.github.io"}},"gitbook":"*"},"file":{"path":"jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/validate-binary-search-tree.md","mtime":"2018-09-27T04:32:25.738Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-27T05:45:34.503Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
