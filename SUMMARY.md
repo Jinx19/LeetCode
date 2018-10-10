@@ -32,6 +32,6 @@
   * [Flattern Binary Tree to Linked List](jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/jiang-er-cha-shu-chai-cheng-lian-biao.md)
 * [宽度优先搜索](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo.md)
   * [Binary Tree Level Order Traversal](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/binary-tree-level-order-traversal.md)
-  * [Binary Tree Serialization](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/binary-tree-serialization.md)
   * [Binary Tree Level Order Traversal II](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/binary-tree-level-order-traversal-ii.md)
+  * [Binary Tree Serialization](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/binary-tree-serialization.md)
 
