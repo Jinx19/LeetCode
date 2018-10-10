@@ -1,3 +1,7 @@
+# 什么是序列化
+
+将“内存”中结构化的数据变成字符串的过程.
+
 # 什么时候需要序列化
 
 1. 将内存中的数据持久化存储时  
@@ -29,11 +33,11 @@ public class Solution {
         if(root == null){
             return new String("");
         }
-        
+
         ArrayList<TreeNode> queue = new ArrayList<TreeNode>();
         StringBuilder sb = new StringBuilder();
         queue.add(root);
-        
+
         for (int i = 0; i < queue.size(); i++) {
             TreeNode node = queue.get(i);
             if (node == null) {
@@ -42,11 +46,11 @@ public class Solution {
             queue.add(node.left);
             queue.add(node.right);
         }
-        
+
         while (queue.get(queue.size() - 1) == null) {
             queue.remove(queue.size() - 1);
         }
-        
+
         for(TreeNode node : queue){
             if(node == null){
                 sb.append("#,");
@@ -73,11 +77,11 @@ public class Solution {
         if(strs.length == 0){
             return null;
         }
-		Queue<String> q = new LinkedList<>();
-		for (String e : strs) {
-			q.offer(e);
-		}
-		Queue<TreeNode> nodes = new LinkedList<>();
+        Queue<String> q = new LinkedList<>();
+        for (String e : strs) {
+            q.offer(e);
+        }
+        Queue<TreeNode> nodes = new LinkedList<>();
         TreeNode root = new TreeNode(Integer.parseInt(q.poll()));
         nodes.offer(root);
         while(!nodes.isEmpty()){
