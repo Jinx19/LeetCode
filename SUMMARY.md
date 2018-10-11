@@ -37,4 +37,5 @@
   * [Graph Valid Tree](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/graph-valid-tree.md)
   * [Clone Graph](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/clone-graph.md)
   * [Search Graph Nodes](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/search-graph-nodes.md)
+  * [Topological Sorting](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/topological-sorting.md)
 
