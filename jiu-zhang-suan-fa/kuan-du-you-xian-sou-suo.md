@@ -28,7 +28,17 @@
 
 [http://www.lintcode.com/problem/course-schedule-ii/](http://www.lintcode.com/problem/course-schedule-ii/)
 
-## sequence reconstruction 
+## sequence reconstruction
 
-http://www.lintcode.com/problem/course-schedule-ii/
+[http://www.lintcode.com/problem/course-schedule-ii/](http://www.lintcode.com/problem/course-schedule-ii/)
+
+判断是否只存在一个拓扑的排序
+
+只需要保证队列中一直最多只能有一个元素
+
+
+
+找到 所有的,需要dfs
+
+
 
