@@ -38,4 +38,5 @@
   * [Clone Graph](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/clone-graph.md)
   * [Search Graph Nodes](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/search-graph-nodes.md)
   * [Topological Sorting](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/topological-sorting.md)
+  * [Number of Islands](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/number-of-islands.md)
 
