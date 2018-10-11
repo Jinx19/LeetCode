@@ -22,15 +22,13 @@
 
 判断是否可以拓扑
 
-course  schedule 
+## course  schedule
 
-http://www.lintcode.com/en/problem/course-schedule/
+[http://www.lintcode.com/en/problem/course-schedule/](http://www.lintcode.com/en/problem/course-schedule/)
+
+[http://www.lintcode.com/problem/course-schedule-ii/](http://www.lintcode.com/problem/course-schedule-ii/)
+
+## sequence reconstruction 
 
 http://www.lintcode.com/problem/course-schedule-ii/
-
-
-
-
-
-
 
