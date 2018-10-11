@@ -56,6 +56,13 @@ for(int i = 0 ; i < 4 ; i++){
     x + directionX[i]
     y + directionY[i]
 }
+
+private boolean inBound(Coordinate coor, boolean[][] grid) {
+    int n = grid.length;
+    int m = grid[0].length;
+        
+    return coor.x >= 0 && coor.x < n && coor.y >= 0 && coor.y < m;
+}
 ```
 
 
