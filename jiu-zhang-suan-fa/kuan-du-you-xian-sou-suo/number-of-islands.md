@@ -52,6 +52,7 @@ class Coordinate {
 
 int[] directionX = {0, 1, -1, 0};
 int[] directionY = {1, 0, 0, -1};
+
 for(int i = 0 ; i < 4 ; i++){
     x + directionX[i]
     y + directionY[i]
