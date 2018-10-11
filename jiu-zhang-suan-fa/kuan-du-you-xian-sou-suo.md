@@ -18,5 +18,19 @@
 
 > 能用 bfs 解决的问题,一定不要用dfs,recursion实现的dfs可能会造成stack overflow
 
+# 拓扑排序
+
+判断是否可以拓扑
+
+course  schedule 
+
+http://www.lintcode.com/en/problem/course-schedule/
+
+http://www.lintcode.com/problem/course-schedule-ii/
+
+
+
+
+
 
 
