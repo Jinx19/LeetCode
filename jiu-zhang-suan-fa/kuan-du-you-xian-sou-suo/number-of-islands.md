@@ -41,10 +41,21 @@ class Solution {
 # 写出八个方向
 
 ```java
+class Coordinate {
+    int x, y;
+    public Coordinate(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+}
+
+
 int[] directionX = {0, 1, -1, 0};
 int[] directionY = {1, 0, 0, -1};
-
-
+for(int i = 0 ; i < 4 ; i++){
+    x + directionX[i]
+    y + directionY[i]
+}
 ```
 
 
