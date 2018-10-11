@@ -40,7 +40,12 @@ class Solution {
 
 # 写出八个方向
 
+```java
+int[] directionX = {0, 1, -1, 0};
+int[] directionY = {1, 0, 0, -1};
 
+
+```
 
 
 
