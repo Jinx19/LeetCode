@@ -39,4 +39,5 @@
   * [Search Graph Nodes](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/search-graph-nodes.md)
   * [Topological Sorting](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/topological-sorting.md)
   * [Number of Islands](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/number-of-islands.md)
+  * [Zombie in Matrix](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/zombie-in-matrix.md)
 
