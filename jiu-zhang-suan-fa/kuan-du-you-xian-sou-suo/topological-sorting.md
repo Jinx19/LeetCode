@@ -29,8 +29,8 @@ Public class DepthFirstOrder{
     marked=newboolean[G.V()];
     for(intv=0;v<G.V();v++){
     if(!marked[v]){
-      dfs(G,v);
-        }
+        dfs(G,v);
+      }
     }
   }
 
