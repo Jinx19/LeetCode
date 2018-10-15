@@ -56,8 +56,8 @@ class Solution {
             ll.get(depth - 1).next = node;
             result.set(depth - 1, node);
         }
-        dfs(ll,root.left,depth+1);
         dfs(ll,root.right,depth+1);
+        dfs(ll,root.left,depth+1);
     }
 }
 ```
