@@ -50,7 +50,7 @@ class Solution {
         ListNode node = new ListNode(root.val);
         if(ll.size()<=depth){
             //到达新层
-            list.add(list);
+            ll.add(node);
         }else{
             //第一层的在最后面
             ll.get(depth - 1).next = node;
