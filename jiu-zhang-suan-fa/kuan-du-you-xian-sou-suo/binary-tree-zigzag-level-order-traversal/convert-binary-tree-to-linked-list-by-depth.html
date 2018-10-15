@@ -1,0 +1,754 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Convert Binary Tree to Linked List By Depth · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../graph-valid-tree.html" />
+    
+    
+    <link rel="prev" href="../binary-tree-zigzag-level-order-traversal.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://Jinx19.github.io" target="_blank" class="custom-link">Jinx19's Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">LeetCode</li>
+        
+        
+    
+
+    
+        
+        <li class="header">编程之美</li>
+        
+        
+    
+
+    
+        
+        <li class="header">剑指Offer</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../../jian-zhi-offer/bu-yong-jia-jian-cheng-chu-zuo-jia-fa.html">
+            
+                <a href="../../../jian-zhi-offer/bu-yong-jia-jian-cheng-chu-zuo-jia-fa.html">
+            
+                    
+                    不用加减乘除做加法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../../../jian-zhi-offer/chapter1.html">
+            
+                <a href="../../../jian-zhi-offer/chapter1.html">
+            
+                    
+                    Chapter1
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../../../jian-zhi-offer/mian-shi-ti-1-fu-zhi-yun-suan-fu-han-shu.html">
+            
+                <a href="../../../jian-zhi-offer/mian-shi-ti-1-fu-zhi-yun-suan-fu-han-shu.html">
+            
+                    
+                    面试题1 : 赋值运算符函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../../../jian-zhi-offer/mian-shi-ti-2-shi-xian-singleton-mo-shi.html">
+            
+                <a href="../../../jian-zhi-offer/mian-shi-ti-2-shi-xian-singleton-mo-shi.html">
+            
+                    
+                    面试题2 : 实现Singleton模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../../../jian-zhi-offer/mian-shi-ti-3-er-wei-shu-zu-zhong-de-cha-zhao.html">
+            
+                <a href="../../../jian-zhi-offer/mian-shi-ti-3-er-wei-shu-zu-zhong-de-cha-zhao.html">
+            
+                    
+                    面试题3 : 二维数组中的查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../../../jian-zhi-offer/mian-shi-ti-4-ti-huan-kong-ge.html">
+            
+                <a href="../../../jian-zhi-offer/mian-shi-ti-4-ti-huan-kong-ge.html">
+            
+                    
+                    面试题4 : 替换空格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="../../../jian-zhi-offer/mian-shi-ti-5-cong-wei-dao-tou-da-yin-lian-biao.html">
+            
+                <a href="../../../jian-zhi-offer/mian-shi-ti-5-cong-wei-dao-tou-da-yin-lian-biao.html">
+            
+                    
+                    面试题5 : 从尾到头打印链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.6" data-path="../../../jian-zhi-offer/mian-shi-ti-6-zhong-jian-er-cha-shu.html">
+            
+                <a href="../../../jian-zhi-offer/mian-shi-ti-6-zhong-jian-er-cha-shu.html">
+            
+                    
+                    面试题6 : 重建二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">九章算法</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../../er-cha-shu-yu-fen-zhi-fa.html">
+            
+                <a href="../../er-cha-shu-yu-fen-zhi-fa.html">
+            
+                    
+                    二叉树与分治法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../../er-cha-shu-yu-fen-zhi-fa/bian-li.html">
+            
+                <a href="../../er-cha-shu-yu-fen-zhi-fa/bian-li.html">
+            
+                    
+                    遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../../maxdepth.html">
+            
+                <a href="../../maxdepth.html">
+            
+                    
+                    MaximumDepthofBinaryTree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="../../er-cha-shu-yu-fen-zhi-fa/binarytreepaths.html">
+            
+                <a href="../../er-cha-shu-yu-fen-zhi-fa/binarytreepaths.html">
+            
+                    
+                    BinaryTreePaths
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="../../er-cha-shu-yu-fen-zhi-fa/minimum-subtree.html">
+            
+                <a href="../../er-cha-shu-yu-fen-zhi-fa/minimum-subtree.html">
+            
+                    
+                    Minimum Subtree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.5" data-path="../../er-cha-shu-yu-fen-zhi-fa/balanced-binary-tree.html">
+            
+                <a href="../../er-cha-shu-yu-fen-zhi-fa/balanced-binary-tree.html">
+            
+                    
+                    Balanced Binary Tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.6" data-path="../../er-cha-shu-yu-fen-zhi-fa/subtree-with-maximum-average.html">
+            
+                <a href="../../er-cha-shu-yu-fen-zhi-fa/subtree-with-maximum-average.html">
+            
+                    
+                    Subtree with Maximum Average
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.7" data-path="../../er-cha-shu-yu-fen-zhi-fa/lowest-common-anestor.html">
+            
+                <a href="../../er-cha-shu-yu-fen-zhi-fa/lowest-common-anestor.html">
+            
+                    
+                    Lowest Common Anestor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.8" data-path="../../er-cha-shu-yu-fen-zhi-fa/validate-binary-search-tree.html">
+            
+                <a href="../../er-cha-shu-yu-fen-zhi-fa/validate-binary-search-tree.html">
+            
+                    
+                    Validate Binary Search Tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.9" data-path="../../er-cha-shu-yu-fen-zhi-fa/flattern-binary-tree-to-linked-list.html">
+            
+                <a href="../../er-cha-shu-yu-fen-zhi-fa/flattern-binary-tree-to-linked-list.html">
+            
+                    
+                    Convert Binary Search Tree to Doubly Linked List
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.10" data-path="../../er-cha-shu-yu-fen-zhi-fa/jiang-er-cha-shu-chai-cheng-lian-biao.html">
+            
+                <a href="../../er-cha-shu-yu-fen-zhi-fa/jiang-er-cha-shu-chai-cheng-lian-biao.html">
+            
+                    
+                    Flattern Binary Tree to Linked List
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../../kuan-du-you-xian-sou-suo.html">
+            
+                <a href="../../kuan-du-you-xian-sou-suo.html">
+            
+                    
+                    宽度优先搜索
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="../binary-tree-level-order-traversal.html">
+            
+                <a href="../binary-tree-level-order-traversal.html">
+            
+                    
+                    Binary Tree Level Order Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2" data-path="../binary-tree-level-order-traversal-ii.html">
+            
+                <a href="../binary-tree-level-order-traversal-ii.html">
+            
+                    
+                    Binary Tree Level Order Traversal II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.3" data-path="../binary-tree-serialization.html">
+            
+                <a href="../binary-tree-serialization.html">
+            
+                    
+                    Binary Tree Serialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.4" data-path="../binary-tree-zigzag-level-order-traversal.html">
+            
+                <a href="../binary-tree-zigzag-level-order-traversal.html">
+            
+                    
+                    Binary Tree Zigzag Level Order Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.2.5" data-path="convert-binary-tree-to-linked-list-by-depth.html">
+            
+                <a href="convert-binary-tree-to-linked-list-by-depth.html">
+            
+                    
+                    Convert Binary Tree to Linked List By Depth
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.6" data-path="../graph-valid-tree.html">
+            
+                <a href="../graph-valid-tree.html">
+            
+                    
+                    Graph Valid Tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.7" data-path="../clone-graph.html">
+            
+                <a href="../clone-graph.html">
+            
+                    
+                    Clone Graph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.8" data-path="../search-graph-nodes.html">
+            
+                <a href="../search-graph-nodes.html">
+            
+                    
+                    Search Graph Nodes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.9" data-path="../topological-sorting.html">
+            
+                <a href="../topological-sorting.html">
+            
+                    
+                    Topological Sorting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.10" data-path="../number-of-islands.html">
+            
+                <a href="../number-of-islands.html">
+            
+                    
+                    Number of Islands
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.11" data-path="../zombie-in-matrix.html">
+            
+                <a href="../zombie-in-matrix.html">
+            
+                    
+                    Zombie in Matrix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.12" data-path="../knight-shortest-path.html">
+            
+                <a href="../knight-shortest-path.html">
+            
+                    
+                    Knight Shortest Path
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >Convert Binary Tree to Linked List By Depth</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="convert-binary-tree-to-linked-list-by-depth">Convert Binary Tree to Linked List By Depth</h1>
+<p>description:</p>
+<p>Given a binary tree, design an algorithm which creates a linked list of all the nodes at each depth (e.g., if you have a tree with depth D, you&#x2019;ll have D linked lists).</p>
+<p>Have you met this question in a real interview? Yes</p>
+<p>Example</p>
+<p>Given binary tree:</p>
+<blockquote>
+<p>1</p>
+<p>/    \</p>
+<p>2     3</p>
+<p>/</p>
+<p>4</p>
+<p>[<br>1-&gt; null,</p>
+<p>2-&gt;3-&gt;null,</p>
+<p>4-&gt;null,]</p>
+</blockquote>
+<p>&#x53C2;&#x8003;<a href="../binary-tree-level-order-traversal-ii.html">Binary Tree Level Order Traversal II</a></p>
+<pre><code class="lang-java"> <span class="hljs-comment">/*
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */</span>
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConvertBinaryTreetoLinkedListsbyDepth</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> List&lt;ListNode&gt; <span class="hljs-title">binaryTreeToLists</span><span class="hljs-params">(TreeNode root)</span> </span>{
+        List&lt;ListNode&gt; ll = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+        dfs(ll,root,<span class="hljs-number">0</span>);
+        <span class="hljs-keyword">return</span> ll;
+    }
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(List&lt;ListNode&gt; ll,TreeNode root,<span class="hljs-keyword">int</span> depth)</span> </span>{
+        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span>;
+        ListNode node = <span class="hljs-keyword">new</span> ListNode(root.val);
+        <span class="hljs-keyword">if</span> (ll.size() &lt;= depth) {
+            ll.add(node);
+        } <span class="hljs-keyword">else</span> {
+            node.next = ll.get(depth);
+            ll.set(depth, node);
+        }
+        dfs(ll, root.right, depth + <span class="hljs-number">1</span>);
+        dfs(ll, root.left, depth + <span class="hljs-number">1</span>);
+    }
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../binary-tree-zigzag-level-order-traversal.html" class="navigation navigation-prev " aria-label="Previous page: Binary Tree Zigzag Level Order Traversal">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../graph-valid-tree.html" class="navigation navigation-next " aria-label="Next page: Graph Valid Tree">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Convert Binary Tree to Linked List By Depth","level":"5.2.5","depth":2,"next":{"title":"Graph Valid Tree","level":"5.2.6","depth":2,"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/graph-valid-tree.md","ref":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/graph-valid-tree.md","articles":[]},"previous":{"title":"Binary Tree Zigzag Level Order Traversal","level":"5.2.4","depth":2,"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/binary-tree-zigzag-level-order-traversal.md","ref":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/binary-tree-zigzag-level-order-traversal.md","articles":[]},"dir":"ltr"},"config":{"plugins":["toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"Jinx19's Blog":"http://Jinx19.github.io"}},"gitbook":"*"},"file":{"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/binary-tree-zigzag-level-order-traversal/convert-binary-tree-to-linked-list-by-depth.md","mtime":"2018-10-15T13:49:12.176Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-15T15:32:48.547Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

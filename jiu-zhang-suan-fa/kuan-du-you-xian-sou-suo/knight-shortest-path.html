@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Graph Valid Tree · GitBook</title>
+        <title>Knight Shortest Path · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="clone-graph.html" />
     
-    
-    <link rel="prev" href="binary-tree-zigzag-level-order-traversal/convert-binary-tree-to-linked-list-by-depth.html" />
+    <link rel="prev" href="zombie-in-matrix.html" />
     
 
     </head>
@@ -481,7 +479,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="5.2.6" data-path="graph-valid-tree.html">
+        <li class="chapter " data-level="5.2.6" data-path="graph-valid-tree.html">
             
                 <a href="graph-valid-tree.html">
             
@@ -559,7 +557,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2.12" data-path="knight-shortest-path.html">
+        <li class="chapter active" data-level="5.2.12" data-path="knight-shortest-path.html">
             
                 <a href="knight-shortest-path.html">
             
@@ -607,7 +605,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Graph Valid Tree</a>
+        <a href="../.." >Knight Shortest Path</a>
     </h1>
 </div>
 
@@ -622,144 +620,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <pre><code>http://www.lintcode.com/problem/graph-valid-tree/
-</code></pre><p>&#x786E;&#x5B9A;&#x4E00;&#x4E2A;&#x56FE;&#x662F;&#x4E00;&#x4E2A;&#x6811;&#x7684;&#x6761;&#x4EF6;</p>
-<p>&#x6761;&#x4EF6;&#x4E00;: &#x521A;&#x597D;&#x6709;n-1&#x6761;&#x8FB9;</p>
-<p>&#x6761;&#x4EF6;2: n&#x4E2A;&#x70B9;&#x8FDE;&#x901A;</p>
-<h1 id="solution-1-dfs">solution 1 dfs</h1>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">validTree</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span>[][] edges)</span> </span>{
-    HashMap&lt;Integer, ArrayList&lt;Integer&gt;&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;Integer, ArrayList&lt;Integer&gt;&gt;();
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;n; i++){
-        ArrayList&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;Integer&gt;();
-        map.put(i, list);
-    }
-
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span>[] edge: edges){
-        map.get(edge[<span class="hljs-number">0</span>]).add(edge[<span class="hljs-number">1</span>]);
-        map.get(edge[<span class="hljs-number">1</span>]).add(edge[<span class="hljs-number">0</span>]);
-    }
-
-    <span class="hljs-keyword">boolean</span>[] visited = <span class="hljs-keyword">new</span> <span class="hljs-keyword">boolean</span>[n];
-
-    <span class="hljs-keyword">if</span>(!helper(<span class="hljs-number">0</span>, -<span class="hljs-number">1</span>, map, visited))
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
-
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">boolean</span> b: visited){
-        <span class="hljs-keyword">if</span>(!b)
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
-    }
-
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
-}
-
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">helper</span><span class="hljs-params">(<span class="hljs-keyword">int</span> curr, <span class="hljs-keyword">int</span> parent, HashMap&lt;Integer, ArrayList&lt;Integer&gt;&gt; map, <span class="hljs-keyword">boolean</span>[] visited)</span></span>{
-    <span class="hljs-comment">//&#x5DF2;&#x7ECF;&#x8D70;&#x8FC7;,&#x8BF4;&#x660E;&#x6709;&#x73AF;</span>
-    <span class="hljs-keyword">if</span>(visited[curr])
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
-
-    visited[curr] = <span class="hljs-keyword">true</span>;
-
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i: map.get(curr)){
-        <span class="hljs-keyword">if</span>(i!=parent &amp;&amp; !helper(i, curr, map, visited)){
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
-        }
-    }   
-
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
-}
-</code></pre>
-<h1 id="solution-2-bfs">solution 2 bfs</h1>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">validTree</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span>[][] edges)</span> </span>{
-    HashMap&lt;Integer, ArrayList&lt;Integer&gt;&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;Integer, ArrayList&lt;Integer&gt;&gt;();
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;n; i++){
-        ArrayList&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;Integer&gt;();
-        map.put(i, list);
-    }
-
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span>[] edge: edges){
-        map.get(edge[<span class="hljs-number">0</span>]).add(edge[<span class="hljs-number">1</span>]);
-        map.get(edge[<span class="hljs-number">1</span>]).add(edge[<span class="hljs-number">0</span>]);
-    }
-
-    <span class="hljs-keyword">boolean</span>[] visited = <span class="hljs-keyword">new</span> <span class="hljs-keyword">boolean</span>[n];
-
-    LinkedList&lt;Integer&gt; queue = <span class="hljs-keyword">new</span> LinkedList&lt;Integer&gt;();
-    queue.offer(<span class="hljs-number">0</span>);
-    <span class="hljs-keyword">while</span>(!queue.isEmpty()){
-        <span class="hljs-keyword">int</span> top = queue.poll();
-        <span class="hljs-keyword">if</span>(visited[top])
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
-
-        visited[top]=<span class="hljs-keyword">true</span>;
-
-        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i: map.get(top)){
-            <span class="hljs-keyword">if</span>(!visited[i])
-                queue.offer(i);
-        }
-    }
-
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">boolean</span> b: visited){
-        <span class="hljs-keyword">if</span>(!b)
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
-    }
-
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
-}
-</code></pre>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
-    <span class="hljs-comment">/**
-     * <span class="hljs-doctag">@param</span> n an integer
-     * <span class="hljs-doctag">@param</span> edges a list of undirected edges
-     * <span class="hljs-doctag">@return</span> true if it&apos;s a valid tree, or false
-     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">validTree</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span>[][] edges)</span> </span>{
-        <span class="hljs-keyword">if</span> (n == <span class="hljs-number">0</span>) {
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
-        }
-
-        <span class="hljs-keyword">if</span> (edges.length != n - <span class="hljs-number">1</span>) {
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
-        }
-
-        Map&lt;Integer, Set&lt;Integer&gt;&gt; graph = initializeGraph(n, edges);
-
-        <span class="hljs-comment">// bfs</span>
-        Queue&lt;Integer&gt; queue = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();
-        Set&lt;Integer&gt; hash = <span class="hljs-keyword">new</span> HashSet&lt;&gt;();
-
-        queue.offer(<span class="hljs-number">0</span>);
-        hash.add(<span class="hljs-number">0</span>);
-        <span class="hljs-keyword">while</span> (!queue.isEmpty()) {
-            <span class="hljs-keyword">int</span> node = queue.poll();
-            <span class="hljs-keyword">for</span> (Integer neighbor : graph.get(node)) {
-                <span class="hljs-keyword">if</span> (hash.contains(neighbor)) {
-                    <span class="hljs-keyword">continue</span>;
-                }
-                hash.add(neighbor);
-                queue.offer(neighbor);
-            }
-        }
-
-        <span class="hljs-keyword">return</span> (hash.size() == n);
-    }
-
-    <span class="hljs-keyword">private</span> Map&lt;Integer, Set&lt;Integer&gt;&gt; initializeGraph(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span>[][] edges) {
-        Map&lt;Integer, Set&lt;Integer&gt;&gt; graph = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {
-            graph.put(i, <span class="hljs-keyword">new</span> HashSet&lt;Integer&gt;());
-        }
-
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; edges.length; i++) {
-            <span class="hljs-keyword">int</span> u = edges[i][<span class="hljs-number">0</span>];
-            <span class="hljs-keyword">int</span> v = edges[i][<span class="hljs-number">1</span>];
-            graph.get(u).add(v);
-            graph.get(v).add(u);
-        }
-
-        <span class="hljs-keyword">return</span> graph;
-    }
-}
-</code></pre>
+                                <h1 id="knight-shortest-path">Knight Shortest Path</h1>
 
                                 
                                 </section>
@@ -787,14 +648,10 @@
 
             
                 
-                <a href="binary-tree-zigzag-level-order-traversal/convert-binary-tree-to-linked-list-by-depth.html" class="navigation navigation-prev " aria-label="Previous page: Convert Binary Tree to Linked List By Depth">
+                <a href="zombie-in-matrix.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Zombie in Matrix">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="clone-graph.html" class="navigation navigation-next " aria-label="Next page: Clone Graph">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -803,7 +660,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Graph Valid Tree","level":"5.2.6","depth":2,"next":{"title":"Clone Graph","level":"5.2.7","depth":2,"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/clone-graph.md","ref":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/clone-graph.md","articles":[]},"previous":{"title":"Convert Binary Tree to Linked List By Depth","level":"5.2.5","depth":2,"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/binary-tree-zigzag-level-order-traversal/convert-binary-tree-to-linked-list-by-depth.md","ref":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/binary-tree-zigzag-level-order-traversal/convert-binary-tree-to-linked-list-by-depth.md","articles":[]},"dir":"ltr"},"config":{"plugins":["toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"Jinx19's Blog":"http://Jinx19.github.io"}},"gitbook":"*"},"file":{"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/graph-valid-tree.md","mtime":"2018-10-11T03:22:04.264Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-15T15:32:48.547Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Knight Shortest Path","level":"5.2.12","depth":2,"previous":{"title":"Zombie in Matrix","level":"5.2.11","depth":2,"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/zombie-in-matrix.md","ref":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/zombie-in-matrix.md","articles":[]},"dir":"ltr"},"config":{"plugins":["toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"Jinx19's Blog":"http://Jinx19.github.io"}},"gitbook":"*"},"file":{"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/knight-shortest-path.md","mtime":"2018-10-15T14:06:08.556Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-15T15:32:48.547Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
