@@ -39,25 +39,23 @@ Given binary tree:
  * }
  */
 
-class Solution {
-    public List<ListNode> binaryTreeToLists(TreeNode root) {
+public class ConvertBinaryTreetoLinkedListsbyDepth {
+    public static List<ListNode> binaryTreeToLists(TreeNode root) {
         List<ListNode> ll = new ArrayList<>();
         dfs(ll,root,0);
         return ll;
     }
-    private void dfs(List<ListNode> ll,TreeNode root,int depth){
-        if(root==null)return;
+    private static void dfs(List<ListNode> ll,TreeNode root,int depth) {
+        if (root == null) return;
         ListNode node = new ListNode(root.val);
-        if(ll.size()<=depth){
-            //到达新层
+        if (ll.size() <= depth) {
             ll.add(node);
-        }else{
-            //第一层的在最后面
-            ll.get(depth - 1).next = node;
-            ll.set(depth - 1, node);
+        } else {
+            node.next = ll.get(depth);
+            ll.set(depth, node);
         }
-        dfs(ll,root.right,depth+1);
-        dfs(ll,root.left,depth+1);
+        dfs(ll, root.right, depth + 1);
+        dfs(ll, root.left, depth + 1);
     }
 }
 ```
