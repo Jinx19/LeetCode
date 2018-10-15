@@ -54,7 +54,7 @@ class Solution {
         }else{
             //第一层的在最后面
             ll.get(depth - 1).next = node;
-            result.set(depth - 1, node);
+            ll.set(depth - 1, node);
         }
         dfs(ll,root.right,depth+1);
         dfs(ll,root.left,depth+1);
