@@ -603,7 +603,50 @@
 <p>&#x80FD;&#x7528; bfs &#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;,&#x4E00;&#x5B9A;&#x4E0D;&#x8981;&#x7528;dfs,recursion&#x5B9E;&#x73B0;&#x7684;dfs&#x53EF;&#x80FD;&#x4F1A;&#x9020;&#x6210;stack overflow</p>
 </blockquote>
 <h1 id="&#x62D3;&#x6251;&#x6392;&#x5E8F;">&#x62D3;&#x6251;&#x6392;&#x5E8F;</h1>
-<p>&#x5224;&#x65AD;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x62D3;&#x6251;</p>
+<p><a href="https://algs4.cs.princeton.edu/42digraph/" target="_blank">https://algs4.cs.princeton.edu/42digraph/</a></p>
+<p>Goal : given a set of tasks to be completed with precedence constraints</p>
+<p>Topological sorting work on DAG --- a digraph that has no cycles.</p>
+<ul>
+<li>&#x6709;&#x5411;&#x56FE;</li>
+<li>&#x65E0;&#x73AF;</li>
+</ul>
+<h2 id="dfs-&#x65B9;&#x6CD5;">Dfs &#x65B9;&#x6CD5;</h2>
+<ul>
+<li>Run depth-first search</li>
+<li>Return vertices in reverse post-order</li>
+</ul>
+<p>Reverse dfs postorder of a DAG is a topological order</p>
+<p><img src="../assets/import1.png" alt=""><img src="../assets/&#x5C4F;&#x5E55;&#x5FEB;&#x7167; 2018-10-15 &#x4E0B;&#x5348;7.16.14.png" alt=""></p>
+<p>Postorder 4 1 2 5 0 6 3</p>
+<p>===&gt;</p>
+<p>Topological order 3 6 0 5 2 1 4</p>
+<pre><code class="lang-java">Public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DepthFirstOrder</span></span>{
+  Private <span class="hljs-keyword">boolean</span>[]marked;
+  privateStack&lt;Integer&gt;reversePost;
+
+  publicDepthFirstOrder(DigraphG){
+    reversePost=newStack&lt;&gt;();
+    marked=newboolean[G.V()];
+    <span class="hljs-keyword">for</span>(intv=<span class="hljs-number">0</span>;v&lt;G.V();v++){
+    <span class="hljs-keyword">if</span>(!marked[v]){
+      dfs(G,v);
+        }
+    }
+  }
+
+  privatevoiddfs(DigraphG,intv){
+    marked[v]=<span class="hljs-keyword">true</span>;
+    <span class="hljs-keyword">for</span>(intw:G.adj(v)){
+      <span class="hljs-keyword">if</span>(!marked[w])dfs(G,w);
+      }
+      reversePost.push(v);
+  }
+
+  publicStack&lt;Integer&gt;reversePost(){
+    returnreversePost;
+  }
+}
+</code></pre>
 <h2 id="course--schedule">course  schedule</h2>
 <p><a href="http://www.lintcode.com/en/problem/course-schedule/" target="_blank">http://www.lintcode.com/en/problem/course-schedule/</a></p>
 <p><a href="http://www.lintcode.com/problem/course-schedule-ii/" target="_blank">http://www.lintcode.com/problem/course-schedule-ii/</a></p>
@@ -658,7 +701,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"宽度优先搜索","level":"5.2","depth":1,"next":{"title":"Binary Tree Level Order Traversal","level":"5.2.1","depth":2,"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/binary-tree-level-order-traversal.md","ref":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/binary-tree-level-order-traversal.md","articles":[]},"previous":{"title":"Flattern Binary Tree to Linked List","level":"5.1.10","depth":2,"path":"jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/jiang-er-cha-shu-chai-cheng-lian-biao.md","ref":"jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/jiang-er-cha-shu-chai-cheng-lian-biao.md","articles":[]},"dir":"ltr"},"config":{"plugins":["toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"Jinx19's Blog":"http://Jinx19.github.io"}},"gitbook":"*"},"file":{"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo.md","mtime":"2018-10-11T12:32:08.960Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-11T12:53:06.831Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"宽度优先搜索","level":"5.2","depth":1,"next":{"title":"Binary Tree Level Order Traversal","level":"5.2.1","depth":2,"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/binary-tree-level-order-traversal.md","ref":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/binary-tree-level-order-traversal.md","articles":[]},"previous":{"title":"Flattern Binary Tree to Linked List","level":"5.1.10","depth":2,"path":"jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/jiang-er-cha-shu-chai-cheng-lian-biao.md","ref":"jiu-zhang-suan-fa/er-cha-shu-yu-fen-zhi-fa/jiang-er-cha-shu-chai-cheng-lian-biao.md","articles":[]},"dir":"ltr"},"config":{"plugins":["toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"Jinx19's Blog":"http://Jinx19.github.io"}},"gitbook":"*"},"file":{"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo.md","mtime":"2018-10-15T12:37:11.867Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-15T12:59:37.193Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

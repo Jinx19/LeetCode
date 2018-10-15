@@ -588,6 +588,42 @@
 <p><a href="http://www.lintcode.com/help/graph" target="_blank">http://www.lintcode.com/help/graph</a></p>
 <p>&#x7B97;&#x6CD5;&#x4E66; &#x6709;&#x5411;&#x56FE;</p>
 <p>&#x7B97;&#x6CD5;  4.5 &#x62D3;&#x6251;&#x6392;&#x5E8F; 375&#x9875;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Digraph</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> V;           <span class="hljs-comment">// number of vertices in this digraph</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> E;                 <span class="hljs-comment">// number of edges in this digraph</span>
+    <span class="hljs-keyword">private</span> Bag&lt;Integer&gt;[] adj;    <span class="hljs-comment">// adj[v] = adjacency list for vertex v</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span>[] indegree;  
+}
+</code></pre>
+<p>DFS&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-java">Public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DepthFirstOrder</span></span>{
+  Private <span class="hljs-keyword">boolean</span>[]marked;
+  privateStack&lt;Integer&gt;reversePost;
+
+  publicDepthFirstOrder(DigraphG){
+    reversePost=newStack&lt;&gt;();
+    marked=newboolean[G.V()];
+    <span class="hljs-keyword">for</span>(intv=<span class="hljs-number">0</span>;v&lt;G.V();v++){
+    <span class="hljs-keyword">if</span>(!marked[v]){
+        dfs(G,v);
+      }
+    }
+  }
+
+  privatevoiddfs(DigraphG,intv){
+    marked[v]=<span class="hljs-keyword">true</span>;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> w:G.adj(v)){
+      <span class="hljs-keyword">if</span>(!marked[w])dfs(G,w);
+      }
+      reversePost.push(v);
+  }
+
+  publicStack&lt;Integer&gt;reversePost(){
+    returnreversePost;
+  }
+}
+</code></pre>
+<p>BFS &#x65B9;&#x6CD5;</p>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TopologicalSorting</span> </span>{
   <span class="hljs-function"><span class="hljs-keyword">public</span> ArrayList&lt;DirectedGraphNode&gt; <span class="hljs-title">topSort</span><span class="hljs-params">(ArrayList&lt;DirectedGraphNode&gt; graph)</span> </span>{
     <span class="hljs-comment">// write your code here</span>
@@ -671,7 +707,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Topological Sorting","level":"5.2.7","depth":2,"next":{"title":"Number of Islands","level":"5.2.8","depth":2,"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/number-of-islands.md","ref":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/number-of-islands.md","articles":[]},"previous":{"title":"Search Graph Nodes","level":"5.2.6","depth":2,"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/search-graph-nodes.md","ref":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/search-graph-nodes.md","articles":[]},"dir":"ltr"},"config":{"plugins":["toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"Jinx19's Blog":"http://Jinx19.github.io"}},"gitbook":"*"},"file":{"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/topological-sorting.md","mtime":"2018-10-11T12:17:31.162Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-11T12:53:06.831Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Topological Sorting","level":"5.2.7","depth":2,"next":{"title":"Number of Islands","level":"5.2.8","depth":2,"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/number-of-islands.md","ref":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/number-of-islands.md","articles":[]},"previous":{"title":"Search Graph Nodes","level":"5.2.6","depth":2,"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/search-graph-nodes.md","ref":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/search-graph-nodes.md","articles":[]},"dir":"ltr"},"config":{"plugins":["toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"Jinx19's Blog":"http://Jinx19.github.io"}},"gitbook":"*"},"file":{"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/topological-sorting.md","mtime":"2018-10-15T12:41:03.227Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-15T12:59:37.193Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
