@@ -20,7 +20,60 @@
 
 # 拓扑排序
 
-判断是否可以拓扑
+[https://algs4.cs.princeton.edu/42digraph/](https://algs4.cs.princeton.edu/42digraph/)
+
+Goal : given a set of tasks to be completed with precedence constraints
+
+Topological sorting work on DAG --- a digraph that has no cycles.
+
+* 有向图
+* 无环
+
+## Dfs 方法
+
+* Run depth-first search
+* Return vertices in reverse post-order
+
+Reverse dfs postorder of a DAG is a topological order
+
+![](/assets/import1.png)![](/assets/屏幕快照 2018-10-15 下午7.16.14.png)
+
+Postorder 4 1 2 5 0 6 3
+
+===&gt;
+
+Topological order 3 6 0 5 2 1 4
+
+```java
+Public class DepthFirstOrder{
+  Private boolean[]marked;
+  privateStack<Integer>reversePost;
+	
+  publicDepthFirstOrder(DigraphG){
+    reversePost=newStack<>();
+    marked=newboolean[G.V()];
+    for(intv=0;v<G.V();v++){
+	if(!marked[v]){
+	  dfs(G,v);
+        }
+    }
+  }
+	
+  privatevoiddfs(DigraphG,intv){
+    marked[v]=true;
+    for(intw:G.adj(v)){
+      if(!marked[w])dfs(G,w);
+      }
+      reversePost.push(v);
+  }
+	
+  publicStack<Integer>reversePost(){
+    returnreversePost;
+  }
+}
+```
+
+
 
 ## course  schedule
 

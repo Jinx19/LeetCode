@@ -8,6 +8,10 @@
 
 算法  4.5 拓扑排序 375页
 
+
+
+BFS 方法
+
 ```java
 public class TopologicalSorting {
   public ArrayList<DirectedGraphNode> topSort(ArrayList<DirectedGraphNode> graph) {
