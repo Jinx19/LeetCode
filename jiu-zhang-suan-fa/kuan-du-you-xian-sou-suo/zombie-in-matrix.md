@@ -17,10 +17,10 @@ public class Solution {
     public int PEOPLE = 0;
     public int ZOMBIE = 1;
     public int WALL = 2;
-    
+
     public int[] deltaX = {1, 0, 0, -1};
     public int[] deltaY = {0, 1, -1, 0};
-     
+
     /**
      * @param grid a 2D integer grid
      * @return an integer
@@ -29,10 +29,10 @@ public class Solution {
         if (grid == null || grid.length == 0 || grid[0].length == 0) {
             return 0;
         }
-        
+
         int n = grid.length;
         int m = grid[0].length;
-        
+
         // initialize the queue & count people
         int people = 0;
         Queue<Coordinate> queue = new LinkedList<>();
@@ -45,12 +45,12 @@ public class Solution {
                 }
             }
         }
-        
+
         // corner case
         if (people == 0) {
             return 0;
         }
-        
+
         // bfs
         int days = 0;
         while (!queue.isEmpty()) {
@@ -63,11 +63,11 @@ public class Solution {
                         zb.x + deltaX[direction],
                         zb.y + deltaY[direction]
                     );
-                    
+
                     if (!isPeople(adj, grid)) {
                         continue;
                     }
-                    
+
                     grid[adj.x][adj.y] = ZOMBIE;
                     people--;
                     if (people == 0) {
@@ -77,14 +77,14 @@ public class Solution {
                 }
             }
         }
-        
+
         return -1;
     }
-    
+
     private boolean isPeople(Coordinate coor, int[][] grid) {
         int n = grid.length;
         int m = grid[0].length;
-        
+
         if (coor.x < 0 || coor.x >= n) {
             return false;
         }
