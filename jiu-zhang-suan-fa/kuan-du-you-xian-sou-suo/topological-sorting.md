@@ -8,33 +8,31 @@
 
 算法  4.5 拓扑排序 375页
 
-
-
 DFS方法
 
 ```java
 Public class DepthFirstOrder{
   Private boolean[]marked;
   privateStack<Integer>reversePost;
-	
+
   publicDepthFirstOrder(DigraphG){
     reversePost=newStack<>();
     marked=newboolean[G.V()];
     for(intv=0;v<G.V();v++){
-	if(!marked[v]){
-	  dfs(G,v);
+    if(!marked[v]){
+      dfs(G,v);
         }
     }
   }
-	
+
   privatevoiddfs(DigraphG,intv){
     marked[v]=true;
-    for(intw:G.adj(v)){
+    for(int w:G.adj(v)){
       if(!marked[w])dfs(G,w);
       }
       reversePost.push(v);
   }
-	
+
   publicStack<Integer>reversePost(){
     returnreversePost;
   }
