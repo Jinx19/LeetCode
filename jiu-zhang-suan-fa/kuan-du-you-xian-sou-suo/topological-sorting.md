@@ -8,6 +8,15 @@
 
 算法  4.5 拓扑排序 375页
 
+```java
+public class Digraph {
+    private final int V;           // number of vertices in this digraph
+    private int E;                 // number of edges in this digraph
+    private Bag<Integer>[] adj;    // adj[v] = adjacency list for vertex v
+    private int[] indegree;  
+}
+```
+
 DFS方法
 
 ```java
