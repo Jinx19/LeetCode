@@ -44,4 +44,5 @@
   * [Knight Shortest Path](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/knight-shortest-path.md)
   * [Zombie in Matrix](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/zombie-in-matrix.md)
   * [无向图连通块](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/wu-xiang-tu-lian-tong-kuai.md)
+  * [Smallest Rectangle Enclosing Block Pixels](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/smallest-rectangle-enclosing-block-pixels.md)
 
