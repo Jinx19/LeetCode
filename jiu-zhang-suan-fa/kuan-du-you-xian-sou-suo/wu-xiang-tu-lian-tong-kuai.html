@@ -1,0 +1,1117 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>无向图连通块 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="smallest-rectangle-enclosing-block-pixels.html" />
+    
+    
+    <link rel="prev" href="zombie-in-matrix.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://Jinx19.github.io" target="_blank" class="custom-link">Jinx19's Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">LeetCode</li>
+        
+        
+    
+
+    
+        
+        <li class="header">编程之美</li>
+        
+        
+    
+
+    
+        
+        <li class="header">剑指Offer</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../jian-zhi-offer/bu-yong-jia-jian-cheng-chu-zuo-jia-fa.html">
+            
+                <a href="../../jian-zhi-offer/bu-yong-jia-jian-cheng-chu-zuo-jia-fa.html">
+            
+                    
+                    不用加减乘除做加法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../../jian-zhi-offer/chapter1.html">
+            
+                <a href="../../jian-zhi-offer/chapter1.html">
+            
+                    
+                    Chapter1
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../../jian-zhi-offer/mian-shi-ti-1-fu-zhi-yun-suan-fu-han-shu.html">
+            
+                <a href="../../jian-zhi-offer/mian-shi-ti-1-fu-zhi-yun-suan-fu-han-shu.html">
+            
+                    
+                    面试题1 : 赋值运算符函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../../jian-zhi-offer/mian-shi-ti-2-shi-xian-singleton-mo-shi.html">
+            
+                <a href="../../jian-zhi-offer/mian-shi-ti-2-shi-xian-singleton-mo-shi.html">
+            
+                    
+                    面试题2 : 实现Singleton模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../../jian-zhi-offer/mian-shi-ti-3-er-wei-shu-zu-zhong-de-cha-zhao.html">
+            
+                <a href="../../jian-zhi-offer/mian-shi-ti-3-er-wei-shu-zu-zhong-de-cha-zhao.html">
+            
+                    
+                    面试题3 : 二维数组中的查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../../jian-zhi-offer/mian-shi-ti-4-ti-huan-kong-ge.html">
+            
+                <a href="../../jian-zhi-offer/mian-shi-ti-4-ti-huan-kong-ge.html">
+            
+                    
+                    面试题4 : 替换空格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="../../jian-zhi-offer/mian-shi-ti-5-cong-wei-dao-tou-da-yin-lian-biao.html">
+            
+                <a href="../../jian-zhi-offer/mian-shi-ti-5-cong-wei-dao-tou-da-yin-lian-biao.html">
+            
+                    
+                    面试题5 : 从尾到头打印链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.6" data-path="../../jian-zhi-offer/mian-shi-ti-6-zhong-jian-er-cha-shu.html">
+            
+                <a href="../../jian-zhi-offer/mian-shi-ti-6-zhong-jian-er-cha-shu.html">
+            
+                    
+                    面试题6 : 重建二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">九章算法</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../er-cha-shu-yu-fen-zhi-fa.html">
+            
+                <a href="../er-cha-shu-yu-fen-zhi-fa.html">
+            
+                    
+                    二叉树与分治法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../er-cha-shu-yu-fen-zhi-fa/bian-li.html">
+            
+                <a href="../er-cha-shu-yu-fen-zhi-fa/bian-li.html">
+            
+                    
+                    遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../maxdepth.html">
+            
+                <a href="../maxdepth.html">
+            
+                    
+                    MaximumDepthofBinaryTree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="../er-cha-shu-yu-fen-zhi-fa/binarytreepaths.html">
+            
+                <a href="../er-cha-shu-yu-fen-zhi-fa/binarytreepaths.html">
+            
+                    
+                    BinaryTreePaths
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="../er-cha-shu-yu-fen-zhi-fa/minimum-subtree.html">
+            
+                <a href="../er-cha-shu-yu-fen-zhi-fa/minimum-subtree.html">
+            
+                    
+                    Minimum Subtree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.5" data-path="../er-cha-shu-yu-fen-zhi-fa/balanced-binary-tree.html">
+            
+                <a href="../er-cha-shu-yu-fen-zhi-fa/balanced-binary-tree.html">
+            
+                    
+                    Balanced Binary Tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.6" data-path="../er-cha-shu-yu-fen-zhi-fa/subtree-with-maximum-average.html">
+            
+                <a href="../er-cha-shu-yu-fen-zhi-fa/subtree-with-maximum-average.html">
+            
+                    
+                    Subtree with Maximum Average
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.7" data-path="../er-cha-shu-yu-fen-zhi-fa/lowest-common-anestor.html">
+            
+                <a href="../er-cha-shu-yu-fen-zhi-fa/lowest-common-anestor.html">
+            
+                    
+                    Lowest Common Anestor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.8" data-path="../er-cha-shu-yu-fen-zhi-fa/validate-binary-search-tree.html">
+            
+                <a href="../er-cha-shu-yu-fen-zhi-fa/validate-binary-search-tree.html">
+            
+                    
+                    Validate Binary Search Tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.9" data-path="../er-cha-shu-yu-fen-zhi-fa/flattern-binary-tree-to-linked-list.html">
+            
+                <a href="../er-cha-shu-yu-fen-zhi-fa/flattern-binary-tree-to-linked-list.html">
+            
+                    
+                    Convert Binary Search Tree to Doubly Linked List
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.10" data-path="../er-cha-shu-yu-fen-zhi-fa/jiang-er-cha-shu-chai-cheng-lian-biao.html">
+            
+                <a href="../er-cha-shu-yu-fen-zhi-fa/jiang-er-cha-shu-chai-cheng-lian-biao.html">
+            
+                    
+                    Flattern Binary Tree to Linked List
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../kuan-du-you-xian-sou-suo.html">
+            
+                <a href="../kuan-du-you-xian-sou-suo.html">
+            
+                    
+                    宽度优先搜索
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="binary-tree-level-order-traversal.html">
+            
+                <a href="binary-tree-level-order-traversal.html">
+            
+                    
+                    Binary Tree Level Order Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2" data-path="binary-tree-level-order-traversal-ii.html">
+            
+                <a href="binary-tree-level-order-traversal-ii.html">
+            
+                    
+                    Binary Tree Level Order Traversal II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.3" data-path="binary-tree-serialization.html">
+            
+                <a href="binary-tree-serialization.html">
+            
+                    
+                    Binary Tree Serialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.4" data-path="binary-tree-zigzag-level-order-traversal.html">
+            
+                <a href="binary-tree-zigzag-level-order-traversal.html">
+            
+                    
+                    Binary Tree Zigzag Level Order Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.5" data-path="binary-tree-zigzag-level-order-traversal/convert-binary-tree-to-linked-list-by-depth.html">
+            
+                <a href="binary-tree-zigzag-level-order-traversal/convert-binary-tree-to-linked-list-by-depth.html">
+            
+                    
+                    Convert Binary Tree to Linked List By Depth
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.6" data-path="graph-valid-tree.html">
+            
+                <a href="graph-valid-tree.html">
+            
+                    
+                    Graph Valid Tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.7" data-path="clone-graph.html">
+            
+                <a href="clone-graph.html">
+            
+                    
+                    Clone Graph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.8" data-path="search-graph-nodes.html">
+            
+                <a href="search-graph-nodes.html">
+            
+                    
+                    Search Graph Nodes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.9" data-path="topological-sorting.html">
+            
+                <a href="topological-sorting.html">
+            
+                    
+                    Topological Sorting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.10" data-path="number-of-islands.html">
+            
+                <a href="number-of-islands.html">
+            
+                    
+                    Number of Islands
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.11" data-path="knight-shortest-path.html">
+            
+                <a href="knight-shortest-path.html">
+            
+                    
+                    Knight Shortest Path
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.12" data-path="zombie-in-matrix.html">
+            
+                <a href="zombie-in-matrix.html">
+            
+                    
+                    Zombie in Matrix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.2.13" data-path="wu-xiang-tu-lian-tong-kuai.html">
+            
+                <a href="wu-xiang-tu-lian-tong-kuai.html">
+            
+                    
+                    无向图连通块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.14" data-path="smallest-rectangle-enclosing-block-pixels.html">
+            
+                <a href="smallest-rectangle-enclosing-block-pixels.html">
+            
+                    
+                    Smallest Rectangle Enclosing Block Pixels
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >无向图连通块</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x627E;&#x51FA;&#x65E0;&#x5411;&#x56FE;&#x7684;&#x8FDE;&#x901A;&#x5206;&#x91CF;">&#x627E;&#x51FA;&#x65E0;&#x5411;&#x56FE;&#x7684;&#x8FDE;&#x901A;&#x5206;&#x91CF;</h1>
+<p><a href="https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph" target="_blank">Number of Connected Components in an Undirected Graph</a></p>
+<p>&#x4F7F;&#x7528;&#x6DF1;&#x5EA6;&#x4F18;&#x5148;&#x641C;&#x7D22;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CC</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span>[] marked;   <span class="hljs-comment">// marked[v] = has vertex v been marked?</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span>[] id;           <span class="hljs-comment">// id[v] = id of connected component containing v</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span>[] size;         <span class="hljs-comment">// size[id] = number of vertices in given component</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> count;          <span class="hljs-comment">// number of connected components</span>
+
+    <span class="hljs-comment">/**
+     * Computes the connected components of the undirected graph {<span class="hljs-doctag">@code</span> G}.
+     *
+     * <span class="hljs-doctag">@param</span> G the undirected graph
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">CC</span><span class="hljs-params">(Graph G)</span> </span>{
+        marked = <span class="hljs-keyword">new</span> <span class="hljs-keyword">boolean</span>[G.V()];
+        id = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[G.V()];
+        size = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[G.V()];
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> v = <span class="hljs-number">0</span>; v &lt; G.V(); v++) {
+            <span class="hljs-keyword">if</span> (!marked[v]) {
+                dfs(G, v);
+                count++;
+            }
+        }
+    }
+    <span class="hljs-comment">// depth-first search for a Graph</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(Graph G, <span class="hljs-keyword">int</span> v)</span> </span>{
+        marked[v] = <span class="hljs-keyword">true</span>;
+        id[v] = count;
+        size[count]++;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> w : G.adj(v)) {
+            <span class="hljs-keyword">if</span> (!marked[w]) {
+                dfs(G, w);
+            }
+        }
+    }
+    <span class="hljs-comment">/**
+     * Returns the component id of the connected component containing vertex {<span class="hljs-doctag">@code</span> v}.
+     *
+     * <span class="hljs-doctag">@param</span>  v the vertex
+     * <span class="hljs-doctag">@return</span> the component id of the connected component containing vertex {<span class="hljs-doctag">@code</span> v}
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException unless {<span class="hljs-doctag">@code</span> 0 &lt;= v &lt; V}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">id</span><span class="hljs-params">(<span class="hljs-keyword">int</span> v)</span> </span>{
+        validateVertex(v);
+        <span class="hljs-keyword">return</span> id[v];
+    }
+
+    <span class="hljs-comment">/**
+     * Returns the number of vertices in the connected component containing vertex {<span class="hljs-doctag">@code</span> v}.
+     *
+     * <span class="hljs-doctag">@param</span>  v the vertex
+     * <span class="hljs-doctag">@return</span> the number of vertices in the connected component containing vertex {<span class="hljs-doctag">@code</span> v}
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException unless {<span class="hljs-doctag">@code</span> 0 &lt;= v &lt; V}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">size</span><span class="hljs-params">(<span class="hljs-keyword">int</span> v)</span> </span>{
+        validateVertex(v);
+        <span class="hljs-keyword">return</span> size[id[v]];
+    }
+
+    <span class="hljs-comment">/**
+     * Returns the number of connected components in the graph {<span class="hljs-doctag">@code</span> G}.
+     *
+     * <span class="hljs-doctag">@return</span> the number of connected components in the graph {<span class="hljs-doctag">@code</span> G}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">count</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> count;
+    }
+
+    <span class="hljs-comment">/**
+     * Returns true if vertices {<span class="hljs-doctag">@code</span> v} and {<span class="hljs-doctag">@code</span> w} are in the same
+     * connected component.
+     *
+     * <span class="hljs-doctag">@param</span>  v one vertex
+     * <span class="hljs-doctag">@param</span>  w the other vertex
+     * <span class="hljs-doctag">@return</span> {<span class="hljs-doctag">@code</span> true} if vertices {<span class="hljs-doctag">@code</span> v} and {<span class="hljs-doctag">@code</span> w} are in the same
+     *         connected component; {<span class="hljs-doctag">@code</span> false} otherwise
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException unless {<span class="hljs-doctag">@code</span> 0 &lt;= v &lt; V}
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException unless {<span class="hljs-doctag">@code</span> 0 &lt;= w &lt; V}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">connected</span><span class="hljs-params">(<span class="hljs-keyword">int</span> v, <span class="hljs-keyword">int</span> w)</span> </span>{
+        validateVertex(v);
+        validateVertex(w);
+        <span class="hljs-keyword">return</span> id(v) == id(w);
+    }
+    <span class="hljs-comment">/**
+     * Returns true if vertices {<span class="hljs-doctag">@code</span> v} and {<span class="hljs-doctag">@code</span> w} are in the same
+     * connected component.
+     *
+     * <span class="hljs-doctag">@param</span>  v one vertex
+     * <span class="hljs-doctag">@param</span>  w the other vertex
+     * <span class="hljs-doctag">@return</span> {<span class="hljs-doctag">@code</span> true} if vertices {<span class="hljs-doctag">@code</span> v} and {<span class="hljs-doctag">@code</span> w} are in the same
+     *         connected component; {<span class="hljs-doctag">@code</span> false} otherwise
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException unless {<span class="hljs-doctag">@code</span> 0 &lt;= v &lt; V}
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException unless {<span class="hljs-doctag">@code</span> 0 &lt;= w &lt; V}
+     * <span class="hljs-doctag">@deprecated</span> Replaced by {<span class="hljs-doctag">@link</span> #connected(int, int)}.
+     */</span>
+    <span class="hljs-meta">@Deprecated</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">areConnected</span><span class="hljs-params">(<span class="hljs-keyword">int</span> v, <span class="hljs-keyword">int</span> w)</span> </span>{
+        validateVertex(v);
+        validateVertex(w);
+        <span class="hljs-keyword">return</span> id(v) == id(w);
+    }
+
+    <span class="hljs-comment">// throw an IllegalArgumentException unless {@code 0 &lt;= v &lt; V}</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">validateVertex</span><span class="hljs-params">(<span class="hljs-keyword">int</span> v)</span> </span>{
+        <span class="hljs-keyword">int</span> V = marked.length;
+        <span class="hljs-keyword">if</span> (v &lt; <span class="hljs-number">0</span> || v &gt;= V)
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(<span class="hljs-string">&quot;vertex &quot;</span> + v + <span class="hljs-string">&quot; is not between 0 and &quot;</span> + (V-<span class="hljs-number">1</span>));
+    }
+
+    <span class="hljs-comment">/**
+     * Unit tests the {<span class="hljs-doctag">@code</span> CC} data type.
+     *
+     * <span class="hljs-doctag">@param</span> args the command-line arguments
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        In in = <span class="hljs-keyword">new</span> In(args[<span class="hljs-number">0</span>]);
+        Graph G = <span class="hljs-keyword">new</span> Graph(in);
+        CC cc = <span class="hljs-keyword">new</span> CC(G);
+
+        <span class="hljs-comment">// number of connected components</span>
+        <span class="hljs-keyword">int</span> m = cc.count();
+        StdOut.println(m + <span class="hljs-string">&quot; components&quot;</span>);
+
+        <span class="hljs-comment">// compute list of vertices in each connected component</span>
+        Queue&lt;Integer&gt;[] components = (Queue&lt;Integer&gt;[]) <span class="hljs-keyword">new</span> Queue[m];
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) {
+            components[i] = <span class="hljs-keyword">new</span> Queue&lt;Integer&gt;();
+        }
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> v = <span class="hljs-number">0</span>; v &lt; G.V(); v++) {
+            components[cc.id(v)].enqueue(v);
+        }
+
+        <span class="hljs-comment">// print results</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> v : components[i]) {
+                StdOut.print(v + <span class="hljs-string">&quot; &quot;</span>);
+            }
+            StdOut.println();
+        }
+    }
+}
+</code></pre>
+<p>&#x4F7F;&#x7528;union-find&#x7B97;&#x6CD5;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UF</span> </span>{
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span>[] parent;  <span class="hljs-comment">// parent[i] = parent of i</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">byte</span>[] rank;   <span class="hljs-comment">// rank[i] = rank of subtree rooted at i (never more than 31)</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> count;     <span class="hljs-comment">// number of components</span>
+
+    <span class="hljs-comment">/**
+     * Initializes an empty union&#x2013;find data structure with {<span class="hljs-doctag">@code</span> n} sites
+     * {<span class="hljs-doctag">@code</span> 0} through {<span class="hljs-doctag">@code</span> n-1}. Each site is initially in its own 
+     * component.
+     *
+     * <span class="hljs-doctag">@param</span>  n the number of sites
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException if {<span class="hljs-doctag">@code</span> n &lt; 0}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">UF</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>{
+        <span class="hljs-keyword">if</span> (n &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException();
+        count = n;
+        parent = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n];
+        rank = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[n];
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {
+            parent[i] = i;
+            rank[i] = <span class="hljs-number">0</span>;
+        }
+    }
+
+    <span class="hljs-comment">/**
+     * Returns the component identifier for the component containing site {<span class="hljs-doctag">@code</span> p}.
+     *
+     * <span class="hljs-doctag">@param</span>  p the integer representing one site
+     * <span class="hljs-doctag">@return</span> the component identifier for the component containing site {<span class="hljs-doctag">@code</span> p}
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException unless {<span class="hljs-doctag">@code</span> 0 &lt;= p &lt; n}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span> </span>{
+        validate(p);
+        <span class="hljs-keyword">while</span> (p != parent[p]) {
+            parent[p] = parent[parent[p]];    <span class="hljs-comment">// path compression by halving</span>
+            p = parent[p];
+        }
+        <span class="hljs-keyword">return</span> p;
+    }
+
+    <span class="hljs-comment">/**
+     * Returns the number of components.
+     *
+     * <span class="hljs-doctag">@return</span> the number of components (between {<span class="hljs-doctag">@code</span> 1} and {<span class="hljs-doctag">@code</span> n})
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">count</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> count;
+    }
+
+    <span class="hljs-comment">/**
+     * Returns true if the the two sites are in the same component.
+     *
+     * <span class="hljs-doctag">@param</span>  p the integer representing one site
+     * <span class="hljs-doctag">@param</span>  q the integer representing the other site
+     * <span class="hljs-doctag">@return</span> {<span class="hljs-doctag">@code</span> true} if the two sites {<span class="hljs-doctag">@code</span> p} and {<span class="hljs-doctag">@code</span> q} are in the same component;
+     *         {<span class="hljs-doctag">@code</span> false} otherwise
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException unless
+     *         both {<span class="hljs-doctag">@code</span> 0 &lt;= p &lt; n} and {<span class="hljs-doctag">@code</span> 0 &lt;= q &lt; n}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">connected</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p, <span class="hljs-keyword">int</span> q)</span> </span>{
+        <span class="hljs-keyword">return</span> find(p) == find(q);
+    }
+
+    <span class="hljs-comment">/**
+     * Merges the component containing site {<span class="hljs-doctag">@code</span> p} with the 
+     * the component containing site {<span class="hljs-doctag">@code</span> q}.
+     *
+     * <span class="hljs-doctag">@param</span>  p the integer representing one site
+     * <span class="hljs-doctag">@param</span>  q the integer representing the other site
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException unless
+     *         both {<span class="hljs-doctag">@code</span> 0 &lt;= p &lt; n} and {<span class="hljs-doctag">@code</span> 0 &lt;= q &lt; n}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">union</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p, <span class="hljs-keyword">int</span> q)</span> </span>{
+        <span class="hljs-keyword">int</span> rootP = find(p);
+        <span class="hljs-keyword">int</span> rootQ = find(q);
+        <span class="hljs-keyword">if</span> (rootP == rootQ) <span class="hljs-keyword">return</span>;
+
+        <span class="hljs-comment">// make root of smaller rank point to root of larger rank</span>
+        <span class="hljs-keyword">if</span>      (rank[rootP] &lt; rank[rootQ]) parent[rootP] = rootQ;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (rank[rootP] &gt; rank[rootQ]) parent[rootQ] = rootP;
+        <span class="hljs-keyword">else</span> {
+            parent[rootQ] = rootP;
+            rank[rootP]++;
+        }
+        count--;
+    }
+
+    <span class="hljs-comment">// validate that p is a valid index</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">validate</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span> </span>{
+        <span class="hljs-keyword">int</span> n = parent.length;
+        <span class="hljs-keyword">if</span> (p &lt; <span class="hljs-number">0</span> || p &gt;= n) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(<span class="hljs-string">&quot;index &quot;</span> + p + <span class="hljs-string">&quot; is not between 0 and &quot;</span> + (n-<span class="hljs-number">1</span>));  
+        }
+    }
+
+    <span class="hljs-comment">/**
+     * Reads in a an integer {<span class="hljs-doctag">@code</span> n} and a sequence of pairs of integers
+     * (between {<span class="hljs-doctag">@code</span> 0} and {<span class="hljs-doctag">@code</span> n-1}) from standard input, where each integer
+     * in the pair represents some site;
+     * if the sites are in different components, merge the two components
+     * and print the pair to standard output.
+     *
+     * <span class="hljs-doctag">@param</span> args the command-line arguments
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">int</span> n = StdIn.readInt();
+        UF uf = <span class="hljs-keyword">new</span> UF(n);
+        <span class="hljs-keyword">while</span> (!StdIn.isEmpty()) {
+            <span class="hljs-keyword">int</span> p = StdIn.readInt();
+            <span class="hljs-keyword">int</span> q = StdIn.readInt();
+            <span class="hljs-keyword">if</span> (uf.connected(p, q)) <span class="hljs-keyword">continue</span>;
+            uf.union(p, q);
+            StdOut.println(p + <span class="hljs-string">&quot; &quot;</span> + q);
+        }
+        StdOut.println(uf.count() + <span class="hljs-string">&quot; components&quot;</span>);
+    }
+}
+</code></pre>
+<p>&#x52A0;&#x6743;union-find&#x7B97;&#x6CD5;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WeightedQuickUnionUF</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span>[] parent;   <span class="hljs-comment">// parent[i] = parent of i</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span>[] size;     <span class="hljs-comment">// size[i] = number of sites in subtree rooted at i</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> count;      <span class="hljs-comment">// number of components</span>
+
+    <span class="hljs-comment">/**
+     * Initializes an empty union&#x2013;find data structure with {<span class="hljs-doctag">@code</span> n} sites
+     * {<span class="hljs-doctag">@code</span> 0} through {<span class="hljs-doctag">@code</span> n-1}. Each site is initially in its own 
+     * component.
+     *
+     * <span class="hljs-doctag">@param</span>  n the number of sites
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException if {<span class="hljs-doctag">@code</span> n &lt; 0}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">WeightedQuickUnionUF</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>{
+        count = n;
+        parent = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n];
+        size = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n];
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {
+            parent[i] = i;
+            size[i] = <span class="hljs-number">1</span>;
+        }
+    }
+
+    <span class="hljs-comment">/**
+     * Returns the number of components.
+     *
+     * <span class="hljs-doctag">@return</span> the number of components (between {<span class="hljs-doctag">@code</span> 1} and {<span class="hljs-doctag">@code</span> n})
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">count</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> count;
+    }
+
+    <span class="hljs-comment">/**
+     * Returns the component identifier for the component containing site {<span class="hljs-doctag">@code</span> p}.
+     *
+     * <span class="hljs-doctag">@param</span>  p the integer representing one object
+     * <span class="hljs-doctag">@return</span> the component identifier for the component containing site {<span class="hljs-doctag">@code</span> p}
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException unless {<span class="hljs-doctag">@code</span> 0 &lt;= p &lt; n}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span> </span>{
+        validate(p);
+        <span class="hljs-keyword">while</span> (p != parent[p])
+            p = parent[p];
+        <span class="hljs-keyword">return</span> p;
+    }
+
+    <span class="hljs-comment">// validate that p is a valid index</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">validate</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span> </span>{
+        <span class="hljs-keyword">int</span> n = parent.length;
+        <span class="hljs-keyword">if</span> (p &lt; <span class="hljs-number">0</span> || p &gt;= n) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(<span class="hljs-string">&quot;index &quot;</span> + p + <span class="hljs-string">&quot; is not between 0 and &quot;</span> + (n-<span class="hljs-number">1</span>));  
+        }
+    }
+
+    <span class="hljs-comment">/**
+     * Returns true if the the two sites are in the same component.
+     *
+     * <span class="hljs-doctag">@param</span>  p the integer representing one site
+     * <span class="hljs-doctag">@param</span>  q the integer representing the other site
+     * <span class="hljs-doctag">@return</span> {<span class="hljs-doctag">@code</span> true} if the two sites {<span class="hljs-doctag">@code</span> p} and {<span class="hljs-doctag">@code</span> q} are in the same component;
+     *         {<span class="hljs-doctag">@code</span> false} otherwise
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException unless
+     *         both {<span class="hljs-doctag">@code</span> 0 &lt;= p &lt; n} and {<span class="hljs-doctag">@code</span> 0 &lt;= q &lt; n}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">connected</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p, <span class="hljs-keyword">int</span> q)</span> </span>{
+        <span class="hljs-keyword">return</span> find(p) == find(q);
+    }
+
+    <span class="hljs-comment">/**
+     * Merges the component containing site {<span class="hljs-doctag">@code</span> p} with the 
+     * the component containing site {<span class="hljs-doctag">@code</span> q}.
+     *
+     * <span class="hljs-doctag">@param</span>  p the integer representing one site
+     * <span class="hljs-doctag">@param</span>  q the integer representing the other site
+     * <span class="hljs-doctag">@throws</span> IllegalArgumentException unless
+     *         both {<span class="hljs-doctag">@code</span> 0 &lt;= p &lt; n} and {<span class="hljs-doctag">@code</span> 0 &lt;= q &lt; n}
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">union</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p, <span class="hljs-keyword">int</span> q)</span> </span>{
+        <span class="hljs-keyword">int</span> rootP = find(p);
+        <span class="hljs-keyword">int</span> rootQ = find(q);
+        <span class="hljs-keyword">if</span> (rootP == rootQ) <span class="hljs-keyword">return</span>;
+
+        <span class="hljs-comment">// make smaller root point to larger one</span>
+        <span class="hljs-keyword">if</span> (size[rootP] &lt; size[rootQ]) {
+            parent[rootP] = rootQ;
+            size[rootQ] += size[rootP];
+        }
+        <span class="hljs-keyword">else</span> {
+            parent[rootQ] = rootP;
+            size[rootP] += size[rootQ];
+        }
+        count--;
+    }
+
+
+    <span class="hljs-comment">/**
+     * Reads in a sequence of pairs of integers (between 0 and n-1) from standard input, 
+     * where each integer represents some object;
+     * if the sites are in different components, merge the two components
+     * and print the pair to standard output.
+     *
+     * <span class="hljs-doctag">@param</span> args the command-line arguments
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">int</span> n = StdIn.readInt();
+        WeightedQuickUnionUF uf = <span class="hljs-keyword">new</span> WeightedQuickUnionUF(n);
+        <span class="hljs-keyword">while</span> (!StdIn.isEmpty()) {
+            <span class="hljs-keyword">int</span> p = StdIn.readInt();
+            <span class="hljs-keyword">int</span> q = StdIn.readInt();
+            <span class="hljs-keyword">if</span> (uf.connected(p, q)) <span class="hljs-keyword">continue</span>;
+            uf.union(p, q);
+            StdOut.println(p + <span class="hljs-string">&quot; &quot;</span> + q);
+        }
+        StdOut.println(uf.count() + <span class="hljs-string">&quot; components&quot;</span>);
+    }
+
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="zombie-in-matrix.html" class="navigation navigation-prev " aria-label="Previous page: Zombie in Matrix">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="smallest-rectangle-enclosing-block-pixels.html" class="navigation navigation-next " aria-label="Next page: Smallest Rectangle Enclosing Block Pixels">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"无向图连通块","level":"5.2.13","depth":2,"next":{"title":"Smallest Rectangle Enclosing Block Pixels","level":"5.2.14","depth":2,"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/smallest-rectangle-enclosing-block-pixels.md","ref":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/smallest-rectangle-enclosing-block-pixels.md","articles":[]},"previous":{"title":"Zombie in Matrix","level":"5.2.12","depth":2,"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/zombie-in-matrix.md","ref":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/zombie-in-matrix.md","articles":[]},"dir":"ltr"},"config":{"plugins":["toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"Jinx19's Blog":"http://Jinx19.github.io"}},"gitbook":"*"},"file":{"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/wu-xiang-tu-lian-tong-kuai.md","mtime":"2018-11-01T07:52:07.256Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-01T14:59:15.815Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
