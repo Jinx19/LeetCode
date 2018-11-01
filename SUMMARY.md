@@ -41,6 +41,7 @@
   * [Search Graph Nodes](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/search-graph-nodes.md)
   * [Topological Sorting](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/topological-sorting.md)
   * [Number of Islands](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/number-of-islands.md)
-  * [Zombie in Matrix](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/zombie-in-matrix.md)
   * [Knight Shortest Path](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/knight-shortest-path.md)
+  * [Zombie in Matrix](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/zombie-in-matrix.md)
+  * [无向图连通块](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/wu-xiang-tu-lian-tong-kuai.md)
 
