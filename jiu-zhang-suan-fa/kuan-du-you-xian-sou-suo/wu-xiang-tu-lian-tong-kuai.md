@@ -27,9 +27,6 @@ public class CC {
             }
         }
     }
-
-
-
     // depth-first search for a Graph
     private void dfs(Graph G, int v) {
         marked[v] = true;
@@ -41,9 +38,6 @@ public class CC {
             }
         }
     }
-
-
-
     /**
      * Returns the component id of the connected component containing vertex {@code v}.
      *
@@ -93,7 +87,6 @@ public class CC {
         validateVertex(w);
         return id(v) == id(w);
     }
-
     /**
      * Returns true if vertices {@code v} and {@code w} are in the same
      * connected component.
