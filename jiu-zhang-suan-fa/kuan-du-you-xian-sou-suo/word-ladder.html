@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Search Graph Nodes · GitBook</title>
+        <title>Word Ladder · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="topological-sorting.html" />
+    <link rel="next" href="you-ju-de-jian-li-ii.html" />
     
     
-    <link rel="prev" href="clone-graph.html" />
+    <link rel="prev" href="smallest-rectangle-enclosing-block-pixels.html" />
     
 
     </head>
@@ -507,7 +507,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="5.2.8" data-path="search-graph-nodes.html">
+        <li class="chapter " data-level="5.2.8" data-path="search-graph-nodes.html">
             
                 <a href="search-graph-nodes.html">
             
@@ -598,7 +598,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2.15" data-path="word-ladder.html">
+        <li class="chapter active" data-level="5.2.15" data-path="word-ladder.html">
             
                 <a href="word-ladder.html">
             
@@ -659,7 +659,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Search Graph Nodes</a>
+        <a href="../.." >Word Ladder</a>
     </h1>
 </div>
 
@@ -674,69 +674,140 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>Given a undirected graph ,a  node and a target, return the nearest node to given node which value of it is target, null if you cannot find.</p>
-<p>there is a mapping store the nodes&apos; values in the given parameters</p>
-<p>bfs &#x627E;&#x5230;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x70B9;&#x5C31;&#x662F;&#x6700;&#x8FD1;&#x7684;</p>
-<p>&#x5982;&#x679C;&#x9898;&#x76EE;&#x662F;&#x627E;&#x5230;&#x6240;&#x6709;&#x7684;,&#x5219;&#x7528;dfs</p>
-<p><strong>Example</strong></p>
-<pre><code>2------3  5
- \     |  | 
-  \    |  |
-   \   |  |
-    \  |  |
-      1 --4
-Give a node 1, target is 50
+                                <h3 id="127word-ladder">127.Word Ladder</h3>
+<p>Given two words (<em>beginWord_and_endWord</em>), and a dictionary&apos;s word list, find the length of shortest transformation sequence from<em>beginWord_to_endWord</em>, such that:</p>
+<ol>
+<li>Only one letter can be changed at a time.</li>
+<li>Each transformed word must exist in the word list. Note that _beginWord _is _not _a transformed word.</li>
+</ol>
+<p><strong>Note:</strong></p>
+<ul>
+<li>Return 0 if there is no such transformation sequence.</li>
+<li>All words have the same length.</li>
+<li>All words contain only lowercase alphabetic characters.</li>
+<li>You may assume no duplicates in the word list.</li>
+<li>You may assume _beginWord _and _endWord _are non-empty and are not the same.</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<pre><code>Input:
 
-there a hash named values which is [3,4,10,50,50], represent:
-Value of node 1 is 3
-Value of node 2 is 4
-Value of node 3 is 10
-Value of node 4 is 50
-Value of node 5 is 50
-</code></pre><p>&#x4F7F;&#x7528; bfs</p>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * Definition for graph node.
- * class UndirectedGraphNode {
- *     int label;
- *     ArrayList&lt;UndirectedGraphNode&gt; neighbors;
- *     UndirectedGraphNode(int x) { 
- *         label = x; neighbors = new ArrayList&lt;UndirectedGraphNode&gt;(); 
- *     }
- * };
- */</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
-    <span class="hljs-comment">/**
-     * <span class="hljs-doctag">@param</span> graph a list of Undirected graph node
-     * <span class="hljs-doctag">@param</span> values a hash mapping, &lt;UndirectedGraphNode, (int)value&gt;
-     * <span class="hljs-doctag">@param</span> node an Undirected graph node
-     * <span class="hljs-doctag">@param</span> target an integer
-     * <span class="hljs-doctag">@return</span> the a node
-     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> UndirectedGraphNode <span class="hljs-title">searchNode</span><span class="hljs-params">(ArrayList&lt;UndirectedGraphNode&gt; graph,
-                                          Map&lt;UndirectedGraphNode, Integer&gt; values,
-                                          UndirectedGraphNode node,
-                                          <span class="hljs-keyword">int</span> target)</span> </span>{
-        Queue&lt;UndirectedGraphNode&gt; q = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();
-        HashSet&lt;UndirectedGraphNode&gt; visited = <span class="hljs-keyword">new</span> HashSet&lt;&gt;();
+beginWord = &quot;hit&quot;,
+endWord = &quot;cog&quot;,
+wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;,&quot;cog&quot;]
 
-        q.offer(node);
-        visited.add(node);
 
-        <span class="hljs-keyword">while</span> (!q.isEmpty()) {
-            UndirectedGraphNode n = q.poll();
-            <span class="hljs-keyword">if</span> (values.get(n) == target) {
-                <span class="hljs-keyword">return</span> n;
-            }
-            <span class="hljs-keyword">for</span> (UndirectedGraphNode subN : n.neighbors) {
-                <span class="hljs-keyword">if</span> (!visited.contains(subN)) {
-                    q.offer(subN);
-                    visited.add(subN);
+Output: 
+5
+Explanation:
+ As one shortest transformation is &quot;hit&quot; -&gt;&quot;hot&quot; -&gt;&quot;dot&quot; -&gt;&quot;dog&quot; -&gt;&quot;cog&quot;,return its length 5.
+</code></pre><p><strong>Example 2:</strong></p>
+<pre><code>Input:
+
+beginWord = &quot;hit&quot;
+endWord = &quot;cog&quot;
+wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;]
+
+
+Output:
+ 0
+
+
+Explanation:
+ The endWord &quot;cog&quot; is not in wordList, therefore no possible
+transformation.
+</code></pre><pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> M,N;
+    <span class="hljs-function"><span class="hljs-keyword">private</span> List&lt;Integer&gt; <span class="hljs-title">getAdj</span><span class="hljs-params">(String word,List&lt;String&gt; wordList)</span></span>{
+        List&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span> ; i &lt; N; i++){
+            String adj = wordList.get(i);
+            <span class="hljs-keyword">if</span>(!word.equals(adj)){
+                <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
+                <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span> ; j &lt; M; j++){
+                    <span class="hljs-keyword">if</span>(word.charAt(j) != adj.charAt(j)){
+                        count++;
+                    }
+                }
+                <span class="hljs-keyword">if</span>(count == <span class="hljs-number">1</span>){
+                    list.add(i);
                 }
             }
         }
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+        <span class="hljs-keyword">return</span> list;
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">ladderLength</span><span class="hljs-params">(String beginWord, String endWord, List&lt;String&gt; wordList)</span> </span>{
+        <span class="hljs-keyword">if</span>(!wordList.contains(endWord)){
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        }
+        N = wordList.size();
+        M = beginWord.length();
+        Queue&lt;Integer&gt; q = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();
+        <span class="hljs-keyword">boolean</span>[] visited = <span class="hljs-keyword">new</span> <span class="hljs-keyword">boolean</span>[N];
+        Map&lt;String,List&lt;Integer&gt;&gt; hashmap = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+        hashmap.put(beginWord,getAdj(beginWord,wordList));
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span> ; i &lt; N; i++){
+            String word = wordList.get(i);
+            hashmap.put(word,getAdj(word,wordList));
+        }
+
+        q.offer(-<span class="hljs-number">1</span>);
+        <span class="hljs-keyword">int</span> step = <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">while</span>(!q.isEmpty()){
+            <span class="hljs-keyword">int</span> size = q.size();
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span> ; j &lt; size ; j++){
+                <span class="hljs-keyword">int</span> wordIndex = q.poll();
+                String word = wordIndex == -<span class="hljs-number">1</span> ? beginWord : wordList.get(wordIndex);
+                <span class="hljs-keyword">if</span>(word.equals(endWord)){
+                     <span class="hljs-keyword">return</span> step;
+                }
+                <span class="hljs-keyword">if</span>(wordIndex == -<span class="hljs-number">1</span> || !visited[wordIndex]){
+                    <span class="hljs-keyword">if</span>(wordIndex != -<span class="hljs-number">1</span>){ 
+                        visited[wordIndex] = <span class="hljs-keyword">true</span>;
+                    } 
+                    List&lt;Integer&gt; list = hashmap.get(word);
+                    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span> ; i &lt; list.size(); i++){
+                        <span class="hljs-keyword">int</span> index = list.get(i);
+                        <span class="hljs-keyword">if</span>(!visited[index]){
+                            q.offer(index);
+                        }
+                    }
+                }
+            }
+            step++;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
     }
 }
+</code></pre>
+<p>&#x4F18;&#x5316;</p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ladderLength</span><span class="hljs-params">(self, beginWord, endWord, wordList)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        :type beginWord: str
+        :type endWord: str
+        :type wordList: List[str]
+        :rtype: int
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">if</span> endWord <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> wordList:
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+        wordDict = set(wordList)
+        length = <span class="hljs-number">2</span>
+        front, back = set([beginWord]), set([endWord])
+        wordDict.discard(beginWord)
+        <span class="hljs-keyword">while</span> front:
+            <span class="hljs-comment"># generate all valid transformations</span>
+            front = wordDict &amp; (set(word[:index] + ch + word[index+<span class="hljs-number">1</span>:] <span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> front 
+                                <span class="hljs-keyword">for</span> index <span class="hljs-keyword">in</span> range(len(beginWord)) <span class="hljs-keyword">for</span> ch <span class="hljs-keyword">in</span> <span class="hljs-string">&apos;abcdefghijklmnopqrstuvwxyz&apos;</span>))
+            <span class="hljs-keyword">if</span> front &amp; back:
+                <span class="hljs-comment"># there are common elements in front and back, done</span>
+                <span class="hljs-keyword">return</span> length
+            length += <span class="hljs-number">1</span>
+            <span class="hljs-keyword">if</span> len(front) &gt; len(back):
+                <span class="hljs-comment"># swap front and back for better performance (fewer choices in generating nextSet)</span>
+                front, back = back, front
+            <span class="hljs-comment"># remove transformations from wordDict to avoid cycle</span>
+            wordDict -= front
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
 </code></pre>
 
                                 
@@ -765,12 +836,12 @@ Value of node 5 is 50
 
             
                 
-                <a href="clone-graph.html" class="navigation navigation-prev " aria-label="Previous page: Clone Graph">
+                <a href="smallest-rectangle-enclosing-block-pixels.html" class="navigation navigation-prev " aria-label="Previous page: Smallest Rectangle Enclosing Block Pixels">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="topological-sorting.html" class="navigation navigation-next " aria-label="Next page: Topological Sorting">
+                <a href="you-ju-de-jian-li-ii.html" class="navigation navigation-next " aria-label="Next page: 邮局的建立ii">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -781,7 +852,7 @@ Value of node 5 is 50
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Search Graph Nodes","level":"5.2.8","depth":2,"next":{"title":"Topological Sorting","level":"5.2.9","depth":2,"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/topological-sorting.md","ref":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/topological-sorting.md","articles":[]},"previous":{"title":"Clone Graph","level":"5.2.7","depth":2,"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/clone-graph.md","ref":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/clone-graph.md","articles":[]},"dir":"ltr"},"config":{"plugins":["toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"Jinx19's Blog":"http://Jinx19.github.io"}},"gitbook":"*"},"file":{"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/search-graph-nodes.md","mtime":"2018-10-11T10:49:30.133Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-08T09:19:32.642Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Word Ladder","level":"5.2.15","depth":2,"next":{"title":"邮局的建立ii","level":"5.2.16","depth":2,"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/you-ju-de-jian-li-ii.md","ref":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/you-ju-de-jian-li-ii.md","articles":[]},"previous":{"title":"Smallest Rectangle Enclosing Block Pixels","level":"5.2.14","depth":2,"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/smallest-rectangle-enclosing-block-pixels.md","ref":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/smallest-rectangle-enclosing-block-pixels.md","articles":[]},"dir":"ltr"},"config":{"plugins":["toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"Jinx19's Blog":"http://Jinx19.github.io"}},"gitbook":"*"},"file":{"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/word-ladder.md","mtime":"2018-11-08T08:13:14.118Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-08T09:19:32.642Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

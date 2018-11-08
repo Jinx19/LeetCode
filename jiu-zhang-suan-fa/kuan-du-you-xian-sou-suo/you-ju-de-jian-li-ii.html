@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Search Graph Nodes · GitBook</title>
+        <title>邮局的建立ii · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="topological-sorting.html" />
     
-    
-    <link rel="prev" href="clone-graph.html" />
+    <link rel="prev" href="word-ladder.html" />
     
 
     </head>
@@ -507,7 +505,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="5.2.8" data-path="search-graph-nodes.html">
+        <li class="chapter " data-level="5.2.8" data-path="search-graph-nodes.html">
             
                 <a href="search-graph-nodes.html">
             
@@ -611,7 +609,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2.16" data-path="you-ju-de-jian-li-ii.html">
+        <li class="chapter active" data-level="5.2.16" data-path="you-ju-de-jian-li-ii.html">
             
                 <a href="you-ju-de-jian-li-ii.html">
             
@@ -659,7 +657,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Search Graph Nodes</a>
+        <a href="../.." >邮局的建立ii</a>
     </h1>
 </div>
 
@@ -674,69 +672,60 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>Given a undirected graph ,a  node and a target, return the nearest node to given node which value of it is target, null if you cannot find.</p>
-<p>there is a mapping store the nodes&apos; values in the given parameters</p>
-<p>bfs &#x627E;&#x5230;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x70B9;&#x5C31;&#x662F;&#x6700;&#x8FD1;&#x7684;</p>
-<p>&#x5982;&#x679C;&#x9898;&#x76EE;&#x662F;&#x627E;&#x5230;&#x6240;&#x6709;&#x7684;,&#x5219;&#x7528;dfs</p>
-<p><strong>Example</strong></p>
-<pre><code>2------3  5
- \     |  | 
-  \    |  |
-   \   |  |
-    \  |  |
-      1 --4
-Give a node 1, target is 50
+                                <pre><code>&#x63CF;&#x8FF0;
+&#x7ED9;&#x51FA;&#x4E00;&#x4E2A;&#x4E8C;&#x7EF4;&#x7684;&#x7F51;&#x683C;&#xFF0C;&#x6BCF;&#x4E00;&#x683C;&#x53EF;&#x4EE5;&#x4EE3;&#x8868;&#x5899; 2 &#xFF0C;&#x623F;&#x5B50; 1&#xFF0C;&#x4EE5;&#x53CA;&#x7A7A; 0 (&#x7528;&#x6570;&#x5B57;0,1,2&#x6765;&#x8868;&#x793A;)&#xFF0C;&#x5728;&#x7F51;&#x683C;&#x4E2D;&#x627E;&#x5230;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;&#x53BB;&#x5EFA;&#x7ACB;&#x90AE;&#x5C40;&#xFF0C;
+&#x4F7F;&#x5F97;&#x6240;&#x6709;&#x7684;&#x623F;&#x5B50;&#x5230;&#x90AE;&#x5C40;&#x7684;&#x8DDD;&#x79BB;&#x548C;&#x662F;&#x6700;&#x5C0F;&#x7684;&#x3002;
+&#x8FD4;&#x56DE;&#x6240;&#x6709;&#x623F;&#x5B50;&#x5230;&#x90AE;&#x5C40;&#x7684;&#x6700;&#x5C0F;&#x8DDD;&#x79BB;&#x548C;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5730;&#x65B9;&#x5EFA;&#x7ACB;&#x90AE;&#x5C40;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;-1.
+</code></pre><pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    @param grid: a 2D grid
+    @return: An integer
+    &quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">shortestDistance</span><span class="hljs-params">(self, grid)</span>:</span>
+        <span class="hljs-comment"># write your code here</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> grid:
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+        m = len(grid)
+        n = len(grid[<span class="hljs-number">0</span>])
 
-there a hash named values which is [3,4,10,50,50], represent:
-Value of node 1 is 3
-Value of node 2 is 4
-Value of node 3 is 10
-Value of node 4 is 50
-Value of node 5 is 50
-</code></pre><p>&#x4F7F;&#x7528; bfs</p>
-<pre><code class="lang-java"><span class="hljs-comment">/**
- * Definition for graph node.
- * class UndirectedGraphNode {
- *     int label;
- *     ArrayList&lt;UndirectedGraphNode&gt; neighbors;
- *     UndirectedGraphNode(int x) { 
- *         label = x; neighbors = new ArrayList&lt;UndirectedGraphNode&gt;(); 
- *     }
- * };
- */</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
-    <span class="hljs-comment">/**
-     * <span class="hljs-doctag">@param</span> graph a list of Undirected graph node
-     * <span class="hljs-doctag">@param</span> values a hash mapping, &lt;UndirectedGraphNode, (int)value&gt;
-     * <span class="hljs-doctag">@param</span> node an Undirected graph node
-     * <span class="hljs-doctag">@param</span> target an integer
-     * <span class="hljs-doctag">@return</span> the a node
-     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> UndirectedGraphNode <span class="hljs-title">searchNode</span><span class="hljs-params">(ArrayList&lt;UndirectedGraphNode&gt; graph,
-                                          Map&lt;UndirectedGraphNode, Integer&gt; values,
-                                          UndirectedGraphNode node,
-                                          <span class="hljs-keyword">int</span> target)</span> </span>{
-        Queue&lt;UndirectedGraphNode&gt; q = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();
-        HashSet&lt;UndirectedGraphNode&gt; visited = <span class="hljs-keyword">new</span> HashSet&lt;&gt;();
+        dist = [[sys.maxsize <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(n)] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(m)]
+        reachable_count = [[<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(n)]<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(m)];
+        min_dist = sys.maxsize
 
-        q.offer(node);
-        visited.add(node);
+        buildings = <span class="hljs-number">0</span>
 
-        <span class="hljs-keyword">while</span> (!q.isEmpty()) {
-            UndirectedGraphNode n = q.poll();
-            <span class="hljs-keyword">if</span> (values.get(n) == target) {
-                <span class="hljs-keyword">return</span> n;
-            }
-            <span class="hljs-keyword">for</span> (UndirectedGraphNode subN : n.neighbors) {
-                <span class="hljs-keyword">if</span> (!visited.contains(subN)) {
-                    q.offer(subN);
-                    visited.add(subN);
-                }
-            }
-        }
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
-    }
-}
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(m):
+            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(n):
+                <span class="hljs-keyword">if</span> grid[i][j] == <span class="hljs-number">1</span>:
+                    self.bfs(grid,i,j,dist,m,n,reachable_count)
+                    buildings += <span class="hljs-number">1</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(m):
+            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(n):
+                <span class="hljs-keyword">if</span> reachable_count[i][j] == buildings <span class="hljs-keyword">and</span> dist[i][j] &lt; min_dist:
+                    min_dist = dist[i][j]
+        <span class="hljs-keyword">return</span> min_dist <span class="hljs-keyword">if</span> min_dist != sys.maxsize <span class="hljs-keyword">else</span> <span class="hljs-number">-1</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bfs</span><span class="hljs-params">(self,grid,i,j,dist,m,n,reachable_count)</span>:</span>
+        visited = [[<span class="hljs-keyword">False</span> <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> range(n)] <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(m)]
+
+        visited[i][j] = <span class="hljs-keyword">True</span>
+
+        q = collections.deque([(i,j,<span class="hljs-number">0</span>)])
+
+        <span class="hljs-keyword">while</span> q:
+            i,j,l = q.popleft()
+            <span class="hljs-keyword">if</span> dist[i][j] == sys.maxsize:
+                dist[i][j] = <span class="hljs-number">0</span>
+            dist[i][j] += l
+
+            <span class="hljs-keyword">for</span> x,y <span class="hljs-keyword">in</span> ((<span class="hljs-number">1</span>,<span class="hljs-number">0</span>),(<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>),(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>),(<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>)):
+                nx, ny = i + x, j + y
+
+                <span class="hljs-keyword">if</span> nx &gt; <span class="hljs-number">-1</span> <span class="hljs-keyword">and</span> nx &lt; m <span class="hljs-keyword">and</span> ny &gt; <span class="hljs-number">-1</span> <span class="hljs-keyword">and</span> ny &lt; n <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> visited[nx][ny]:
+                    visited[nx][ny] = <span class="hljs-keyword">True</span>
+                    <span class="hljs-keyword">if</span> grid[nx][ny] == <span class="hljs-number">0</span>:
+                        q.append((nx,ny,l+<span class="hljs-number">1</span>))
+                        reachable_count[nx][ny] += <span class="hljs-number">1</span>
 </code></pre>
 
                                 
@@ -765,14 +754,10 @@ Value of node 5 is 50
 
             
                 
-                <a href="clone-graph.html" class="navigation navigation-prev " aria-label="Previous page: Clone Graph">
+                <a href="word-ladder.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Word Ladder">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="topological-sorting.html" class="navigation navigation-next " aria-label="Next page: Topological Sorting">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -781,7 +766,7 @@ Value of node 5 is 50
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Search Graph Nodes","level":"5.2.8","depth":2,"next":{"title":"Topological Sorting","level":"5.2.9","depth":2,"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/topological-sorting.md","ref":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/topological-sorting.md","articles":[]},"previous":{"title":"Clone Graph","level":"5.2.7","depth":2,"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/clone-graph.md","ref":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/clone-graph.md","articles":[]},"dir":"ltr"},"config":{"plugins":["toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"Jinx19's Blog":"http://Jinx19.github.io"}},"gitbook":"*"},"file":{"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/search-graph-nodes.md","mtime":"2018-10-11T10:49:30.133Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-08T09:19:32.642Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"邮局的建立ii","level":"5.2.16","depth":2,"previous":{"title":"Word Ladder","level":"5.2.15","depth":2,"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/word-ladder.md","ref":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/word-ladder.md","articles":[]},"dir":"ltr"},"config":{"plugins":["toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"Jinx19's Blog":"http://Jinx19.github.io"}},"gitbook":"*"},"file":{"path":"jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/you-ju-de-jian-li-ii.md","mtime":"2018-11-08T09:16:12.771Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-08T09:19:32.642Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
