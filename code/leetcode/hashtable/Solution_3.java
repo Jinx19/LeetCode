@@ -1,4 +1,4 @@
-package hashtable;
+package leetcode.hashtable;
 
 /**
  * Created by mac on 2018/7/8.

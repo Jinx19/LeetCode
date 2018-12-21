@@ -1,7 +1,7 @@
-package leetcode.dfs;
+package code.leetcode.dfs;
 
 
-import leetcode.tree.TreeNode;
+import code.leetcode.tree.TreeNode;
 
 /**
  * Created by mac on 2018/7/8.

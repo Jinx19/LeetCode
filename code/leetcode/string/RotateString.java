@@ -1,3 +1,4 @@
+package code.leetcode.string;
 
 public class RotateString {
 	public boolean rotateString(String A, String B) {

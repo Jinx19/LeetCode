@@ -1,4 +1,4 @@
-package bitmainpulation;
+package leetcode.bitmainpulation;
 
 /**
  * 762. Prime Number of Set Bits in Binary Representation

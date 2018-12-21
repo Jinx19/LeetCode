@@ -1,4 +1,4 @@
-package offer;
+package code.offer;
 /**
  * 001_ReverseWordsInSentence
  */

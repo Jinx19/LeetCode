@@ -1,7 +1,4 @@
-package array;
-
-import backtracking.Solution_78;
-
+package code.leetcode.array;
 import java.util.Stack;
 
 /**

@@ -1,4 +1,4 @@
-package bit;
+package code.leetcode.bit;
 
 public class AplusB {
 	public static int aplusb(int a, int b) {

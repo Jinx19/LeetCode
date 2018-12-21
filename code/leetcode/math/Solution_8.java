@@ -1,4 +1,4 @@
-package math;
+package leetcode.math;
 
 /**
  * Created by mac on 2018/6/23.

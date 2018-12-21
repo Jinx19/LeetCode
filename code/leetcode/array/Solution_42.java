@@ -1,4 +1,4 @@
-package array;
+package leetcode.array;
 
 /**
  * Created by mac on 2018/6/29.

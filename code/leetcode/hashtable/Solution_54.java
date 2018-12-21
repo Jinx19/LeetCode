@@ -1,4 +1,4 @@
-package hashtable;
+package leetcode.hashtable;
 
 import java.util.ArrayList;
 import java.util.List;

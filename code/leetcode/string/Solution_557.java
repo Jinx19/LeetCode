@@ -1,4 +1,4 @@
-package string;
+package leetcode.string;
 
 /**
  * Created by mac on 2018/6/21.

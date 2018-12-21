@@ -1,4 +1,4 @@
-package leetcode.tree;
+package code.leetcode.tree;
 
 
 

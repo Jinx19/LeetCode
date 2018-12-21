@@ -1,4 +1,4 @@
-package sort;
+package leetcode.sort;
 
 /**
  * Created by mac on 2018/6/21.

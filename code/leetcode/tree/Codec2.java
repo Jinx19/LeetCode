@@ -1,4 +1,4 @@
-package leetcode.tree;
+package code.leetcode.tree;
 
 public class Codec2 {
 	// Encodes a tree to a single string.

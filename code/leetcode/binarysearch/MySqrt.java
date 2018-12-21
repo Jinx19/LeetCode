@@ -1,4 +1,4 @@
-package binarysearch;
+package leetcode.binarysearch;
 
 public class MySqrt {
 	public static int mySqrt(int x) {

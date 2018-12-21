@@ -1,4 +1,4 @@
-package leetcode.tree;
+package code.leetcode.tree;
 
 public class ConstructStringFromBinaryTree {
 	public String tree2str(TreeNode t) {

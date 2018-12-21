@@ -1,6 +1,6 @@
-package tree;
+package leetcode.tree;
 
-import array.FindMaxMovices;
+import leetcode.array.FindMaxMovices;
 
 /**
  * Created by mac on 2018/7/10.

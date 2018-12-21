@@ -1,4 +1,4 @@
-package array;
+package leetcode.array;
 
 public class Solution_152 {
 	public int maxProduct(int[] nums) {

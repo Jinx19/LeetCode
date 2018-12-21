@@ -1,4 +1,4 @@
-package tree;
+package leetcode.tree;
 
 /**
  * Created by mac on 2018/7/10.

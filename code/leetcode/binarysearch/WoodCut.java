@@ -1,4 +1,4 @@
-package binarysearch;
+package leetcode.binarysearch;
 
 import javax.swing.plaf.synth.SynthStyle;
 
