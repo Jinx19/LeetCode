@@ -47,4 +47,6 @@
   * [Smallest Rectangle Enclosing Block Pixels](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/smallest-rectangle-enclosing-block-pixels.md)
   * [Word Ladder](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/word-ladder.md)
   * [邮局的建立ii](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/you-ju-de-jian-li-ii.md)
+* [哈希表和堆](ha-xi-biao-he-dui.md)
+  * [Kth Largest Element in a Stream](ha-xi-biao-he-dui/kth-largest-element-in-a-stream.md)
 
