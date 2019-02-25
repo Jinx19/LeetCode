@@ -49,4 +49,5 @@
   * [邮局的建立ii](jiu-zhang-suan-fa/kuan-du-you-xian-sou-suo/you-ju-de-jian-li-ii.md)
 * [哈希表和堆](ha-xi-biao-he-dui.md)
   * [Kth Largest Element in a Stream](ha-xi-biao-he-dui/kth-largest-element-in-a-stream.md)
+  * [Merge k Sorted Lists](ha-xi-biao-he-dui/merge-k-sorted-lists.md)
 
