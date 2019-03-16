@@ -1,4 +1,4 @@
-package code.leetcode.backtracking;
+package leetcode.backtracking;
 
 
 import java.lang.reflect.Array;

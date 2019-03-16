@@ -1,4 +1,4 @@
-package code.lintcode;
+package lintcode;
 
 import code.common.ListNode;
 import code.common.TreeNode;

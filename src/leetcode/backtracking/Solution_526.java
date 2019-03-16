@@ -1,4 +1,4 @@
-package code.leetcode.backtracking;
+package leetcode.backtracking;
 
 public class Solution_526 {
 	static boolean isFollowed(int i, int position, int nums[]) {

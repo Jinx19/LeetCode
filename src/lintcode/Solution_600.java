@@ -1,4 +1,4 @@
-package code.lintcode;
+package lintcode;
 
 import java.util.LinkedList;
 import java.util.Queue;

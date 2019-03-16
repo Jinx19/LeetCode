@@ -1,4 +1,4 @@
-package code.lintcode;
+package lintcode;
 
 public class SearchForARange {
     public int[] searchRange(int[] A, int target) {

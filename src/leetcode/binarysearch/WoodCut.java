@@ -1,7 +1,5 @@
 package leetcode.binarysearch;
 
-import javax.swing.plaf.synth.SynthStyle;
-
 public class WoodCut {
 	private boolean C(int[] L, int k, int x) {
 		int sum = 0;

@@ -1,4 +1,4 @@
-package code.lintcode;
+package lintcode;
 
 public class DoublyListNode {
     int val;
