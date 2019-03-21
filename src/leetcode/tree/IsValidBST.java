@@ -1,4 +1,4 @@
-package code.leetcode.tree;
+package leetcode.tree;
 
 public class IsValidBST {
 	public boolean isValidBST(TreeNode root) {
