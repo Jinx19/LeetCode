@@ -1,5 +1,4 @@
 package leetcode.binarysearch;
-
 public class WoodCut {
 	private boolean C(int[] L, int k, int x) {
 		int sum = 0;
@@ -8,7 +7,6 @@ public class WoodCut {
 		}
 		return sum >= k;
 	}
-
 	public int woodCut(int[] L, int K) {
 		// write your code here
 		if (L == null || L.length == 0)
@@ -23,12 +21,5 @@ public class WoodCut {
 			}
 		}
 		return lb;
-	}
-
-	public static void main(String[] args) {
-		WoodCut wc = new WoodCut();
-		int[] L = {232,124,456};
-		int K = 7;
-		System.out.println(wc.woodCut(L, K));
 	}
 }
