@@ -8,7 +8,7 @@ import java.util.Comparator;
  * Created by mac on 2018/7/26.
  * Consecutive Numbers Sum
  */
-public class Solution_829 {
+public class ConsecutiveNumbersSum {
     public int consecutiveNumbersSum(int N) {
         int count = 0;
         for (int L = 0; L * (L + 1) < 2 * N; L++)
@@ -47,7 +47,7 @@ public class Solution_829 {
     }
 
     public static void main(String[] args) {
-        Solution_829 solution_829 = new Solution_829();
+        ConsecutiveNumbersSum solution_829 = new ConsecutiveNumbersSum();
         solution_829.FindContinuousSequence(9);
     }
 }

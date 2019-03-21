@@ -4,7 +4,7 @@ package leetcode.math;
  * Created by mac on 2018/7/17.
  * Number of Digit One
  */
-public class Solution_233 {
+public class NumberOfDigitOne {
     private int NumberOf1(String str, int index) {
         if (str == null || str.charAt(index) < '0' || str.charAt(index) > '9' || index == str.length()) {
             return 0;
@@ -40,7 +40,7 @@ public class Solution_233 {
     }
 
     public static void main(String[] args) {
-        Solution_233 solution_233 = new Solution_233();
+        NumberOfDigitOne solution_233 = new NumberOfDigitOne();
         System.out.println(solution_233.countDigitOne(233332));
     }
 }

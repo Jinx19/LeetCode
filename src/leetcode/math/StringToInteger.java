@@ -4,7 +4,7 @@ package leetcode.math;
  * Created by mac on 2018/6/23.
  * String to Integer (atoi)
  */
-public class Solution_8 {
+public class StringToInteger {
     private static final int max = Integer.MAX_VALUE / 10;
 
     public int myAtoi(String str) {
@@ -36,7 +36,7 @@ public class Solution_8 {
     }
 
     public static void main(String[] args) {
-        Solution_8 solution_8 = new Solution_8();
+        StringToInteger solution_8 = new StringToInteger();
         solution_8.myAtoi("-91283472332");
 
     }
