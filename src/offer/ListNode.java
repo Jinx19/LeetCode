@@ -1,4 +1,4 @@
-package code.offer;
+package offer;
 
 public class ListNode {
     public int value;
