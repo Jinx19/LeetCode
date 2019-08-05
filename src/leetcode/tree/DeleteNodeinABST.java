@@ -1,4 +1,4 @@
-package code.leetcode.tree;
+package leetcode.tree;
 
 public class DeleteNodeinABST {
 	public static TreeNode root;

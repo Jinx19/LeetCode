@@ -1,4 +1,4 @@
-package code.offer;
+package offer;
 
 import java.util.Stack;
 
