@@ -6,5 +6,4 @@ public class SetT {
     Set set = new HashSet();
     Set treeSet = new TreeSet();
     Set linkedHashSet = new LinkedHashSet();
-    LinkedHashMap
 }
