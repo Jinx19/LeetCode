@@ -1,4 +1,4 @@
-package code.offer;
+package offer;
 
 public class _004ReplaceBlank {
     public char[] replaceBlank(char[] string, int length) {
