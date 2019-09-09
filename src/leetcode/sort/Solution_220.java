@@ -1,39 +1,36 @@
 package leetcode.sort;
 
+import java.util.HashMap;
 
-import java.util.HashSet;
-import java.util.Set;
-
-/***
- * Given an array of integers, find out whether there are two distinct indices i and j
- * in the array such that the absolute difference between nums[i] and nums[j] is at most t
- * and the absolute difference between i and j is at most k.
- *
- * Example 1:
- *
- * Input: nums = [1,2,3,1], k = 3, t = 0
- * Output: true
- * Example 2:
- *
- * Input: nums = [1,0,1,1], k = 1, t = 2
- * Output: true
- * Example 3:
- *
- * Input: nums = [1,5,9,1,5,9], k = 2, t = 3
- * Output: false
- */
 public class Solution_220 {
-//    public int getIndexOfBox(int n,int k){
-//    }
     public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
-        Set<Integer> kSet = new HashSet<>();
+        HashMap<Integer,Integer> hs = new HashMap<>();
+        for(int i = 0 ; i < nums.length; i++){
+           int index = nums[i]/(t+1);
+           if(nums[i] < 0){
+               nums[i] -= 1;
+           }
+           if(hs.containsKey(index)) {
+               return true;
+           }
 
+           if(hs.containsKey(index - 1)&& Math.abs(hs.get(index - 1) - nums[i]) < t + 1){
+               return true;
+           }
 
-        return true;
+           if(hs.containsKey(index + 1) && Math.abs(hs.get(index+1)-nums[i]) < t + 1){
+               return true;
+           }
+
+           hs.put(index,nums[i]);
+           if(i > k){
+               hs.remove(nums[i-k]/(t+1));
+           }
+        }
+        return false;
     }
 
     public static void main(String[] args) {
-//        Solution_220 solution_220 = new Solution_220();
-
+        System.out.println(-3/5);
     }
 }
