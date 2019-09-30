@@ -1,7 +1,5 @@
-package leetcode.binarysearch;
+package src.leetcode.binarysearch;
 
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -46,8 +44,6 @@ public class FindPeakElement {
             for(int i = 0 ; i < strs.length ;i++){
                 nums[i] = Integer.valueOf(strs[i]);
             }
-            System.out.println("nums:" + ArrayUtils.toString(nums));
-            System.out.println("peak:" + findPeakElement.findPeakElement(nums));
         }
     }
 

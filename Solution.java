@@ -65,11 +65,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
-        long[][] array = {{1,3,10}, {2,6,8}, {1,5,11}};
-        for (long i : solution.topn(array, 4)) {
-            System.out.println(i);
-        }
+        System.out.println("x");
     }
 
 }
